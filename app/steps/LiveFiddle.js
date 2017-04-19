@@ -28,7 +28,7 @@ export class LiveFiddle extends Component {
 			js_pre_processor      : "babel",
 			head                  : "<meta name='viewport' content='width=device-width'>",
 			css_external          : "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css;https://cdn.rawgit.com/appbaseio/reactivesearch/0.4.3/dist/css/style.min.css",
-			js_external           : "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js;https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js;https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places;https://cdn.rawgit.com/appbaseio/reactivesearch/master/umd/ReactiveSearch.js"
+			js_external           : "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js;https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js;https://cdn.rawgit.com/appbaseio/reactivesearch/master/umd/ReactiveSearch.js;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"
 
 		};
 		return JSON.stringify(config);

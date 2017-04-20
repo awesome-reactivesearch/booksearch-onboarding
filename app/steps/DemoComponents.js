@@ -132,8 +132,8 @@ export default class DemoComponents extends Component {
 							</div>
 						</div>
 						<div className="right-col">
-							<img className="big" src="https://i.imgur.com/AxAJkte.png" />
-							<p><strong>DataSearch</strong> is a searchbox UI component that can search on one or more fields, and comes with optional auto-complete suggestions and result highlighting support. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/DataSearch.html" target="_blank">here</a>.</p>
+							<img src="https://i.imgur.com/1NQyO0H.png" />
+							<p><strong>DateRange</strong> sensor component creates a calendar view based UI widget, enabling us to select a range of dates for filtering. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/DateRange.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
 
@@ -144,8 +144,8 @@ export default class DemoComponents extends Component {
 							</div>
 						</div>
 						<div className="right-col">
-							<img src="https://i.imgur.com/kquzzEU.png" />
-							<p><strong>SingleDropdownList</strong> is a dropdown UI component. We will use this to create a search filter by stories, comments, etc. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/SingleDropdownList.html" target="_blank">here</a>.</p>
+							<img src="https://i.imgur.com/WE8Fvpt.png" />
+							<p><strong>RangeSlider</strong> component creates a numeric range slider UI widget, which can be used for granular filtering of numeric data. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/RangeSlider.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
 
@@ -156,8 +156,8 @@ export default class DemoComponents extends Component {
 							</div>
 						</div>
 						<div className="right-col">
-							<img className="big" src="https://i.imgur.com/AxAJkte.png" />
-							<p><strong>DataSearch</strong> is a searchbox UI component that can search on one or more fields, and comes with optional auto-complete suggestions and result highlighting support. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/DataSearch.html" target="_blank">here</a>.</p>
+							<img src="https://i.imgur.com/nGe0rYe.png" />
+							<p><strong>NumberBox</strong> sensor component creates a NumberBox UI widget. It is used for filtering results based on a numeric query. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/NumberBox.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
 
@@ -168,8 +168,8 @@ export default class DemoComponents extends Component {
 							</div>
 						</div>
 						<div className="right-col">
-							<img className="big" src="https://i.imgur.com/YA2JbnN.png" />
-							<p><strong>ResultList</strong> allows us to render the search matches in a list format and comes with built-in support for pagination, infinite scrolling as well as sorting options. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/ReactiveList.html" target="_blank">here</a>.</p>
+							<img src="https://i.imgur.com/ZdofPeT.png" />
+							<p><strong>ResultCard</strong> allows us to render the search matches in a card format and comes with built-in support for pagination, infinite scrolling as well as sorting options.</p>
 						</div>
 					</div>
 				</div>

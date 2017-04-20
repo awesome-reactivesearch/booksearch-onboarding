@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { dataOperation } from "./service/DataOperation";
 import { LoginScreen } from "./header/LoginScreen";
 import { Steps } from "./steps/index";
+import intercomService from "./service/IntercomService";
 
 class Main extends Component {
 	constructor(props) {
@@ -26,6 +27,12 @@ class Main extends Component {
 				loadingProgress: false,
 				profile: res
 			});
+			intercomService.loggingIn(res.body);
+			const userInfo = {
+				email: res.body.email,
+				reactivesearch: true
+			};
+			intercomService.update(userInfo);
 			dataOperation.updateUser(res.body);
 		}).fail((res) => {
 			this.setState({

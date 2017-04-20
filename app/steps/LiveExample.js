@@ -89,7 +89,7 @@ export class LiveExample extends Component {
 								end: "$250"
 							}}
 							react={{
-									and: ["PlaceSensor", "DateRangeSensor", "GuestSensor", "RoomTypeSensor"]
+									and: ["DateRangeSensor", "GuestSensor"]
 								}}
 						/>
 
@@ -116,7 +116,7 @@ export class LiveExample extends Component {
 									onData={this.onData}
 									pagination={true}
 									react={{
-										and: ["PlaceSensor", "DateRangeSensor", "GuestSensor", "RoomTypeSensor", "PriceSensor"]
+										and: ["DateRangeSensor", "GuestSensor", "PriceSensor"]
 									}}
 								/>
 							</div>

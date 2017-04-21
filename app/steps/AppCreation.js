@@ -61,14 +61,24 @@ export class AppCreation extends Component {
 	}
 
 	container() {
+		const linkStyles = {
+			border: "0",
+			fontSize: "14px",
+			textTransform: "none",
+			position: "absolute",
+			bottom: "10px",
+			left: "calc(50% - 88px)"
+		};
+
 		let view = (
 			<div>
 				<LoginScreen />
 				<p>
-					<a className="subscribe" style={{border: "0", fontSize: "14px", textTransform: "none"}} onClick={() => this.props.nextStep()}>Skip to Airbnb App</a>
+					<a className="subscribe" style={linkStyles} onClick={() => this.props.nextStep()}>Skip to Airbnb App</a>
 				</p>
 			</div>
 		);
+
 		if (this.state.loadingProgress) {
 			view = (
 				<div style={{position: "relative", top: 0, left: 0}}>

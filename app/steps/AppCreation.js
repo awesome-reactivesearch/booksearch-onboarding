@@ -65,7 +65,7 @@ export class AppCreation extends Component {
 			<div>
 				<LoginScreen />
 				<p>
-					<a className="subscribe" style={{border: "0", fontSize: "14px", textTransform: "none"}} onClick={() => this.props.nextStep()}>Skip to Airbnb App</a>
+					<a className="subscribe" style={{border: "0", fontSize: "14px", textTransform: "none", position: "absolute", bottom: "10px", left: "calc(50% - 88px)"}} onClick={() => this.props.nextStep()}>Skip to Airbnb App</a>
 				</p>
 			</div>
 		);

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { dataOperation } from "../service/DataOperation";
-import { data } from "../service/indexData";
 import renderHTML from "react-render-html";
 
 const ReactivebaseMarkup = `
@@ -79,35 +77,6 @@ const ResultCardMarkup = `
 `;
 
 export default class DemoComponents extends Component {
-	submit() {
-		this.props.toggleLoader("Assembling data and components for your app. Hold tight!");
-		dataOperation.indexData(data)
-		.on('data', (res) => {
-			this.props.nextStep();
-		})
-		.on('error', (err) => {
-			console.error("bulk failed: ", err);
-		});
-	}
-
-	submitBtn() {
-		let btn;
-		if (this.props.completedStep >= 2) {
-			btn = (
-				<button className="btn btn-primary pos-static submit-btn" onClick={() => this.props.setStep(3)}>
-					Next
-				</button>
-			);
-		} else {
-			btn = (
-				<button className="btn btn-primary pos-static submit-btn" onClick={() => this.submit()}>
-					Next
-				</button>
-			);
-		}
-		return btn;
-	}
-
 	render() {
 		return (
 			<section className="single-step">
@@ -173,7 +142,9 @@ export default class DemoComponents extends Component {
 						</div>
 					</div>
 				</div>
-				{this.submitBtn()}
+				<button className="btn btn-primary pos-static submit-btn" onClick={() => this.props.nextStep()}>
+					Next
+				</button>
 			</section>
 		);
 	}

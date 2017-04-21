@@ -12,13 +12,13 @@ export class ServeStep extends Component {
 	renderComponent() {
 		switch(this.props.step) {
 			case 0:
-				return (<AppCreation {...this.props}></AppCreation>);
-			break;
-			case 1:
 				return (<SampleDataContainer {...this.props}></SampleDataContainer>);
 			break;
-			case 2:
+			case 1:
 				return (<DemoComponents {...this.props}></DemoComponents>);
+			break;
+			case 2:
+				return (<AppCreation {...this.props}></AppCreation>);
 			break;
 			case 3:
 				return (<LiveFiddle {...this.props}></LiveFiddle>);

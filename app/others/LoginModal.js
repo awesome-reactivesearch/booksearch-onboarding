@@ -18,7 +18,7 @@ export class LoginModal extends Component {
 		this.setState({ showModal: true });
 	}
 	showIcon() {
-		let icon = 'Login to continue';
+		let icon = 'Login (or) Signup here';
 		if(this.state.profile) {
 			icon = 'Logout';
 		}
@@ -31,7 +31,7 @@ export class LoginModal extends Component {
 	render() {
 		return (
 			<div>
-				<a title="Subscribe to updates" className="subscribe" href="javascript:void;" onClick={() => this.open()}>
+				<a title="Signup for free" className="btn btn-primary pos-static submit-btn" href="javascript:void;" onClick={() => this.open()}>
 					{this.showIcon()}
 				</a>
 				<Modal className="modal-info" show={this.state.showModal} onHide={() => this.close()}>

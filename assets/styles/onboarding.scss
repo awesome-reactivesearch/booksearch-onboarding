@@ -33,6 +33,11 @@ $pulse-duration: 750ms;
 		border-style: double;
 		border-width: .5rem;
 	}
+
+	&--dark {
+		border: .5rem solid #ccc;
+		border-top-color: #444;
+	}
 }
 
 body {
@@ -903,5 +908,16 @@ table.highlight {
 		.toggle-btn .fa-chevron-up {
 			display: none;
 		}
+	}
+}
+
+.table-container {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	overflow-x: scroll;
+
+	td {
+		word-wrap: break-word;
 	}
 }

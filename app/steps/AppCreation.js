@@ -1,6 +1,11 @@
 import { default as React, Component } from "react";
 import { render } from "react-dom";
+import { LoginScreen } from "../header/LoginScreen";
 import { dataOperation } from "../service/DataOperation";
+import { settings } from "../service/analyzerSettings";
+import { mapping } from "../service/mappingObj";
+import { data } from "../service/indexData";
+import intercomService from "../service/IntercomService";
 
 export class AppCreation extends Component {
 	constructor(props) {
@@ -18,6 +23,10 @@ export class AppCreation extends Component {
 		this.showError = this.showError.bind(this);
 	}
 
+	componentWillMount() {
+		this.getUser();
+	}
+
 	componentDidMount() {
 		if (dataOperation.app && dataOperation.app.appName) {
 			this.setState({
@@ -26,6 +35,76 @@ export class AppCreation extends Component {
 			});
 			dataOperation.createUrl(this.createUrl);
 		}
+	}
+
+	getUser() {
+		this.setState({
+			loadingProgress: true
+		});
+		dataOperation.getUser().done((res) => {
+			this.setState({
+				loadingProgress: false,
+				profile: res
+			});
+			intercomService.loggingIn(res.body);
+			const userInfo = {
+				email: res.body.email,
+				reactivesearch: true
+			};
+			intercomService.update(userInfo);
+			dataOperation.updateUser(res.body);
+		}).fail((res) => {
+			this.setState({
+				loadingProgress: false
+			});
+		});
+	}
+
+	container() {
+		let view = (
+			<div>
+				<LoginScreen />
+				<p>
+					<a className="subscribe" style={{border: "1px solid #ccc"}} onClick={() => this.props.nextStep()}>Skip to Airbnb App</a>
+				</p>
+			</div>
+		);
+		if (this.state.loadingProgress) {
+			view = (
+				<div style={{position: "relative", top: 0, left: 0}}>
+					<div className="loading loading--dark"></div>
+				</div>
+			);
+		}
+		if(this.state.profile) {
+			let readOnly = {
+				readOnly: this.state.readOnly
+			};
+			view = (
+			  <section className="single-step">
+				<h2>Create an app</h2>
+				<p>
+					It's time we create an appbase.io app where all the data will reside once our <b>reactivesearch</b> app is up and running.
+				</p>
+
+				{this.state.error ? this.showError(): null}
+
+				<div className="row">
+					<div className="input-field">
+						<label {...readOnly}>
+							<span>Enter app name</span>
+							<input type="text"
+								className="form-control"
+								onChange={this.appNameChange}
+								value={this.state.appName} />
+						</label>
+						{this.submitBtn()}
+					</div>
+				</div>
+			  </section>
+			);
+		}
+		return view;
 	}
 
 	appNameChange(event) {
@@ -69,9 +148,25 @@ export class AppCreation extends Component {
 					res.body.appName = this.state.appName;
 					res.body = Object.assign(res.body, permission);
 					dataOperation.updateApp(res.body);
-					dataOperation.createUrl(this.createUrl);
-					this.props.nextStep();
-				}).catch((e) => {
+					dataOperation.createUrl(this.createUrl)
+				})
+				.then(() => {this.props.toggleLoader("Applying mappings... Please Wait!")})
+				.then(() => dataOperation.closeIndex())
+				.then(() => dataOperation.updateSettings("listing", settings))
+				.then(() => dataOperation.openIndex())
+				.then(() => dataOperation.updateMapping("listing", mapping))
+				.then((res) => {
+					this.props.toggleLoader();
+					this.props.toggleLoader("Assembling data and components for your app. Hold tight!");
+					dataOperation.indexData(data)
+					.on('data', (res) => {
+						this.props.nextStep();
+					})
+					.on('error', (err) => {
+						console.error("bulk failed: ", err);
+					});
+				})
+				.catch((e) => {
 					console.log(e);
 					this.errorMsg = 'Some error occured. Please try again!';
 					this.setState({
@@ -135,31 +230,12 @@ export class AppCreation extends Component {
 	}
 
 	render() {
-		let readOnly = {
-			readOnly: this.state.readOnly
-		};
 		return (
-		  <section className="single-step">
-			<h2>Create an app</h2>
-			<p>
-				First things first, we will start by creating an appbase.io app. This is where all the data will reside once our <b>reactivesearch</b> app is up and running.
-			</p>
-
-			{this.state.error ? this.showError(): null}
-
-			<div className="row">
-				<div className="input-field">
-					<label {...readOnly}>
-						<span>Enter app name</span>
-						<input type="text"
-							className="form-control"
-							onChange={this.appNameChange}
-							value={this.state.appName} />
-					</label>
-					{this.submitBtn()}
+			<div className="appContainer">
+				<div className="app-container">
+					{this.container()}
 				</div>
 			</div>
-		  </section>
 		);
 	}
 }

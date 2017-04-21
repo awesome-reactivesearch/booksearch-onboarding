@@ -200,23 +200,23 @@ export class Steps extends Component {
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">1</span>
 							</span>
-							Create an app
+							Analyzing dataset for Airbnb
 						</li>
-						<li onClick={this.setStep.bind(this, 1)} className={(this.state.currentStep == 1 ? "active" : this.state.completedStep >= 1 ? "finished" : null)}>
+						<li className={(this.state.currentStep == 1 ? "active" : this.state.completedStep >= 1 ? "finished" : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">2</span>
 							</span>
-							Add data
+							Assembling components
 						</li>
-						<li onClick={this.setStep.bind(this, 2)} className={(this.state.currentStep == 2 ? "active" : this.state.completedStep >= 2 ? "finished" : null)}>
+						<li className={(this.state.currentStep == 2 ? "active" : this.state.completedStep >= 2 ? "finished" : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">3</span>
 							</span>
-							Know your Components
+							Create an app
 						</li>
-						<li onClick={this.setStep.bind(this, 3)} className={(this.state.currentStep == 3 ? "active" : this.state.completedStep >= 3 ? "finished" : null)}>
+						<li className={(this.state.currentStep == 3 ? "active" : this.state.completedStep >= 3 ? "finished" : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">4</span>

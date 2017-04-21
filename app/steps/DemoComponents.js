@@ -76,6 +76,32 @@ const ResultCardMarkup = `
 </pre>
 `;
 
+const DateFn = `
+<pre style='color:#000000;background:#ffffff;'>dateQuery<span style='color:#808030; '>(</span>value<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+    <span style='color:#800000; font-weight:bold; '>let</span> query <span style='color:#808030; '>=</span> <span style='color:#0f4d75; '>null</span><span style='color:#800080; '>;</span>
+    <span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#808030; '>(</span>value<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+        query <span style='color:#808030; '>=</span> <span style='color:#808030; '>[</span>
+            <span style='color:#800080; '>{</span>
+                <span style='color:#800000; '>"</span><span style='color:#0000e6; '>range</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
+                    <span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_from</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
+                        <span style='color:#800000; '>"</span><span style='color:#0000e6; '>lte</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> moment<span style='color:#808030; '>(</span>value<span style='color:#808030; '>.</span>startDate<span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>format<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>YYYYMMDD</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span>
+                    <span style='color:#800080; '>}</span>
+                <span style='color:#800080; '>}</span>
+            <span style='color:#800080; '>}</span><span style='color:#808030; '>,</span>
+            <span style='color:#800080; '>{</span>
+                <span style='color:#800000; '>"</span><span style='color:#0000e6; '>range</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
+                    <span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_to</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
+                        <span style='color:#800000; '>"</span><span style='color:#0000e6; '>gte</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> moment<span style='color:#808030; '>(</span>value<span style='color:#808030; '>.</span>endDate<span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>format<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>YYYYMMDD</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span>
+                    <span style='color:#800080; '>}</span>
+                <span style='color:#800080; '>}</span>
+            <span style='color:#800080; '>}</span>
+        <span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+    <span style='color:#800080; '>}</span>
+    <span style='color:#800000; font-weight:bold; '>return</span> query<span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+</pre>
+`;
+
 export default class DemoComponents extends Component {
 	render() {
 		return (
@@ -110,7 +136,8 @@ export default class DemoComponents extends Component {
 					<div className="row">
 						<div className="left-col">
 							<div className="code-div">
-								{renderHTML(DateRangeMarkup)}
+								{renderHTML(DateRangeMarkup)} <br/>
+								{renderHTML(DateFn)}
 							</div>
 						</div>
 						<div className="right-col">

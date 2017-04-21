@@ -82,9 +82,9 @@ export class AppCreation extends Component {
 			};
 			view = (
 			  <section className="single-step">
-				<h2>Create an app</h2>
+				<h2>Save progress in an app</h2>
 				<p>
-					It's time we create an appbase.io app where all the data will reside once our <b>reactivesearch</b> app is up and running.
+					In this step, we will save our dataset from <strong>step 1</strong> into an appbase.io app for later re-use.
 				</p>
 
 				{this.state.error ? this.showError(): null}

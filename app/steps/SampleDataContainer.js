@@ -29,9 +29,9 @@ export default class SampleDataContainer extends Component {
 	render() {
 		return (
 			<section className="single-step">
-				<h2>Sample Dataset for Airbnb</h2>
+				<h2>Indexing Airbnb Dataset</h2>
 				<p>
-					We have prepared a small sample of Airbnb dataset to be inserted into the app. Hit the <strong>Next</strong> button to learn about the data-components.
+					Every good app starts with data. We have prepared a sample Airbnb dataset to be indexed in our app. Hit the <strong>Next</strong> button at the bottom of the screen.
 				</p>
 				<div className="table-container">
 					<table className="highlight responsive-table">

@@ -80,7 +80,7 @@ export default class DemoComponents extends Component {
 	render() {
 		return (
 			<section className="single-step">
-				<h2>Let us assemble all the components</h2>
+				<h2>Building the SimpleBeds UI</h2>
 
 				<div className="docs-wrapper">
 					<div className="row">
@@ -90,31 +90,8 @@ export default class DemoComponents extends Component {
 							</div>
 						</div>
 						<div className="right-col">
-							<p>ReactiveBase is the first component in any ReactiveSearch (or Maps) app, it connects the UI layer with the appbase.io data backend.</p>
-						</div>
-					</div>
-
-					<div className="row">
-						<div className="left-col">
-							<div className="code-div">
-								{renderHTML(DateRangeMarkup)}
-							</div>
-						</div>
-						<div className="right-col">
-							<img src="https://i.imgur.com/1NQyO0H.png" />
-							<p><strong>DateRange</strong> sensor component creates a calendar view based UI widget, enabling us to select a range of dates for filtering. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/DateRange.html" target="_blank">here</a>.</p>
-						</div>
-					</div>
-
-					<div className="row">
-						<div className="left-col">
-							<div className="code-div">
-								{renderHTML(RangeSliderMarkup)}
-							</div>
-						</div>
-						<div className="right-col">
-							<img src="https://i.imgur.com/WE8Fvpt.png" />
-							<p><strong>RangeSlider</strong> component creates a numeric range slider UI widget, which can be used for granular filtering of numeric data. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/RangeSlider.html" target="_blank">here</a>.</p>
+							<p><strong>ReactiveBase</strong> is the first component in a ReactiveSearch app, it connects the UI layer with the appbase.io DB service, where we indexed the Airbnb dataset.</p>
+							<p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/getting-started/ReactiveBase.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
 
@@ -126,9 +103,34 @@ export default class DemoComponents extends Component {
 						</div>
 						<div className="right-col">
 							<img src="https://i.imgur.com/nGe0rYe.png" />
-							<p><strong>NumberBox</strong> sensor component creates a NumberBox UI widget. It is used for filtering results based on a numeric query. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/NumberBox.html" target="_blank">here</a>.</p>
+							<p><strong>NumberBox</strong> creates a NumberBox UI component. It prunes available listings based on the number of current selected guests. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/NumberBox.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
+
+					<div className="row">
+						<div className="left-col">
+							<div className="code-div">
+								{renderHTML(DateRangeMarkup)}
+							</div>
+						</div>
+						<div className="right-col">
+							<img src="https://i.imgur.com/1NQyO0H.png" />
+							<p><strong>DateRange</strong> creates a calendar view based UI component. It filters the available listings based on a user selected date range. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/DateRange.html" target="_blank">here</a>.</p>
+						</div>
+					</div>
+
+					<div className="row">
+						<div className="left-col">
+							<div className="code-div">
+								{renderHTML(RangeSliderMarkup)}
+							</div>
+						</div>
+						<div className="right-col">
+							<img src="https://i.imgur.com/WE8Fvpt.png" />
+							<p><strong>RangeSlider</strong> creates a numeric range based UI component. We will use it to create a price filter. Additionally, we will use the <code>react</code> prop to only display price ranges of the available listings. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/RangeSlider.html" target="_blank">here</a>.</p>
+						</div>
+					</div>
+
 
 					<div className="row">
 						<div className="left-col">
@@ -138,7 +140,7 @@ export default class DemoComponents extends Component {
 						</div>
 						<div className="right-col">
 							<img src="https://i.imgur.com/ZdofPeT.png" />
-							<p><strong>ResultCard</strong> allows us to render the search matches in a card format and comes with built-in support for pagination, infinite scrolling as well as sorting options.</p>
+							<p><strong>ResultCard</strong> renders the available listings based on the applied filters in a card format and comes with a built-in support for pagination. Notice the use of <code>react</code> prop for specifying how to filter the data.</p>
 						</div>
 					</div>
 				</div>

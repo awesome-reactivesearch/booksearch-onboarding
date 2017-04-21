@@ -9,9 +9,10 @@ import Clipboard from "Clipboard";
 export class Steps extends Component {
 	constructor(props) {
 		super(props);
+		const currentStep = JSON.parse(localStorage.getItem('newUserLoggedIn')) ? 2 : 0;
 		this.state = {
-			currentStep: 0,
-			completedStep: -1,
+			currentStep,
+			completedStep: currentStep - 1,
 			slideup: false,
 			slideVisible: false,
 			showLoader: false,

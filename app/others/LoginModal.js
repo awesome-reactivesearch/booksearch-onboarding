@@ -16,6 +16,7 @@ export class LoginModal extends Component {
 	}
 	open() {
 		this.setState({ showModal: true });
+		localStorage.setItem("newUserLoggedIn", true);
 	}
 	showIcon() {
 		let icon = 'Login (or) Signup here';

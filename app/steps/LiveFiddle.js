@@ -13,6 +13,7 @@ export class LiveFiddle extends Component {
 		};
 		this.codepenConfig = this.codepenConfig.bind(this);
 		this.handleSelect = this.handleSelect.bind(this);
+		localStorage.removeItem("newUserLoggedIn");
 	}
 
 	codepenConfig() {

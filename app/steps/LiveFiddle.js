@@ -90,7 +90,7 @@ export class LiveFiddle extends Component {
 					</Tab>
 				</Tabs>
 				<div className="extra-btns">
-					<form action="http://codepen.io/pen/define" method="POST" target="_blank">
+					<form action="https://codepen.io/pen/define" method="POST" target="_blank">
 						<input type="hidden" name="data" value={this.codepenConfig()} />
 						<button type="submit" className="subscribe"><i className="fa fa-external-link"></i> Codepen</button>
 					</form>

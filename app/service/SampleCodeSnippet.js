@@ -6,29 +6,6 @@ export const sampleCodeSnippet = `const {
 	ResultCard } = ReactiveSearch;
 
 class Main extends React.Component {
-	dateQuery(value) {
-		let query = null;
-		if (value) {
-			query = [
-				{
-					"range": {
-						"date_from": {
-							"lte": moment(value.startDate).format("YYYYMMDD")
-						}
-					}
-				},
-				{
-					"range": {
-						"date_to": {
-							"gte": moment(value.endDate).format("YYYYMMDD")
-						}
-					}
-				}
-			];
-		}
-		return query;
-	}
-
 	onData(res) {
 		return {
 			image: res.image,
@@ -59,11 +36,14 @@ class Main extends React.Component {
 
 					<div className="sensor-wrapper clearfix">
 						<DateRange
+							appbaseField="date_from"
 							componentId="DateRangeSensor"
-							appbaseField={["date_from", "date_to"]}
 							title="When"
 							numberOfMonths={1}
-							customQuery={this.dateQuery}
+							queryFormat="basic_date"
+							extra={{
+								initialVisibleMonth: () => moment("2017-04-01")
+							}}
 						/>
 
 						<RangeSlider

@@ -2,29 +2,9 @@
 # yarn lockfile v1
 
 
-"@appbaseio/reactivebase@1.0.0-alpha17", "@appbaseio/reactivebase@^1.0.0-alpha17":
-  version "1.0.0-alpha17"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-alpha17.tgz#2de5f5c7351d0b4963cb98f05230d9cd43d975a5"
-  dependencies:
-    appbase-js "^0.11.0"
-    babel-preset-stage-0 "^6.5.0"
-    classnames "^2.2.5"
-    fbemitter "^2.0.2"
-    jquery "^3.1.1"
-    lodash "^4.15.0"
-    moment "^2.14.1"
-    rc-slider "^5.4.0"
-    react "^15.4.2"
-    react-addons-shallow-compare "^15.4.2"
-    react-addons-test-utils "^15.4.2"
-    react-dates "^4.3.0"
-    react-dom "^15.4.2"
-    react-moment-proptypes "^1.3.0"
-    react-select "^1.0.0-rc.3"
-
-"@appbaseio/reactivebase@1.0.0-alpha51":
-  version "1.0.0-alpha51"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-alpha51.tgz#b325f1c9b2df7b83f52b65843342dace830bd0d5"
+"@appbaseio/reactivebase@1.0.0-alpha54":
+  version "1.0.0-alpha54"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-alpha54.tgz#436a2399891d15cf64a79abca9403411bd4a9ccc"
   dependencies:
     appbase-js "^0.11.0"
     babel-preset-stage-0 "^6.5.0"
@@ -44,18 +24,18 @@
     react-select "^1.0.0-rc.3"
     url-search-params "^0.8.0"
 
-"@appbaseio/reactivemaps-manual@1.0.0-alpha", "@appbaseio/reactivemaps-manual@^1.0.0-alpha":
+"@appbaseio/reactivemaps-manual@1.0.0-alpha":
   version "1.0.0-alpha"
   resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps-manual/-/reactivemaps-manual-1.0.0-alpha.tgz#d45c54758faad0171efb22b26a725bfc673c3107"
   dependencies:
     grunt "~0.4.0"
     serve-static "^1.10.2"
 
-"@appbaseio/reactivemaps@1.0.0-alpha42":
-  version "1.0.0-alpha42"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-alpha42.tgz#1d3399f480fbf160cc6bbf5fa8f75780c091d4a5"
+"@appbaseio/reactivemaps@1.0.0-alpha45":
+  version "1.0.0-alpha45"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-alpha45.tgz#1d00f791449b64de1b438d2dc1b6c5db5cb481a0"
   dependencies:
-    "@appbaseio/reactivebase" "1.0.0-alpha51"
+    "@appbaseio/reactivebase" "1.0.0-alpha54"
     "@appbaseio/reactivemaps-manual" "1.0.0-alpha"
     appbase-js "^0.11.0"
     axios "^0.15.2"
@@ -74,34 +54,11 @@
     react-select "^1.0.0-rc.3"
     react-tooltip "^3.1.8"
 
-"@appbaseio/reactivemaps@^1.0.0-alpha13":
-  version "1.0.0-alpha13"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-alpha13.tgz#c2c3131f01ce4a5d3d07ae61fc278a1399d408ef"
+"@appbaseio/reactivesearch@^0.5.24":
+  version "0.5.24"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-0.5.24.tgz#86c71b0032910cd1025679751eb785715cd36974"
   dependencies:
-    "@appbaseio/reactivebase" "1.0.0-alpha17"
-    "@appbaseio/reactivemaps-manual" "^1.0.0-alpha"
-    appbase-js "^0.11.0"
-    axios "^0.15.2"
-    babel-preset-stage-0 "^6.5.0"
-    classnames "^2.2.5"
-    fbemitter "^2.0.2"
-    google-map-react "^0.14.5"
-    google-maps "^3.2.1"
-    lodash "^4.15.0"
-    node-sass "^4.5.1"
-    rc-slider "^5.4.0"
-    react "^15.4.2"
-    react-addons-test-utils "^15.4.2"
-    react-dom "^15.4.2"
-    react-google-maps "^4.11.0"
-    react-select "^1.0.0-rc.3"
-    react-tooltip "^3.1.8"
-
-"@appbaseio/reactivesearch@^0.5.20":
-  version "0.5.20"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-0.5.20.tgz#ef795fac2b9bc139f5c7d15a63696a7183732574"
-  dependencies:
-    "@appbaseio/reactivemaps" "1.0.0-alpha42"
+    "@appbaseio/reactivemaps" "1.0.0-alpha45"
     classnames "^2.2.5"
     jquery "^3.1.1"
     lodash "^4.15.0"
@@ -109,6 +66,7 @@
     node-sass "^4.5.1"
     rc-slider "^5.4.0"
     react "15.4.2"
+    react-autosuggest "^9.3.0"
     react-dom "15.4.2"
     react-select "^1.0.0-rc.3"
     react-stars "^2.1.0"
@@ -4091,7 +4049,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.8:
+prop-types@^15.5.10, prop-types@^15.5.8:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
   dependencies:
@@ -4253,15 +4211,15 @@ react-attr-converter@0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/react-attr-converter/-/react-attr-converter-0.1.1.tgz#0591f5a1146e3ab9c8e4d303d6cf966f5e6d7608"
 
-react-autosuggest@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-9.0.1.tgz#b56eaf8fc3dd46d36b92c5395b6b07174bc10912"
+react-autosuggest@^9.0.1, react-autosuggest@^9.3.0:
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-9.3.1.tgz#cf106d95e650de292a08e6506372d3eb4b6b2614"
   dependencies:
-    prop-types "^15.5.8"
-    react-autowhatever "^10.0.0"
+    prop-types "^15.5.10"
+    react-autowhatever "^10.1.0"
     shallow-equal "^1.0.0"
 
-react-autowhatever@^10.0.0:
+react-autowhatever@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/react-autowhatever/-/react-autowhatever-10.1.0.tgz#41f6d69382437d3447a0a3c8913bb8ca2feaabc1"
   dependencies:

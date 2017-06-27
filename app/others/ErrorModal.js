@@ -1,5 +1,4 @@
 import { default as React, Component } from 'react';
-import { render } from 'react-dom';
 import { Modal } from 'react-bootstrap';
 
 export class ErrorModal extends Component {

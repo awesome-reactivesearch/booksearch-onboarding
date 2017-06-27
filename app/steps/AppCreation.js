@@ -1,5 +1,4 @@
 import { default as React, Component } from "react";
-import { render } from "react-dom";
 import { LoginScreen } from "../header/LoginScreen";
 import { dataOperation } from "../service/DataOperation";
 import { settings } from "../service/analyzerSettings";

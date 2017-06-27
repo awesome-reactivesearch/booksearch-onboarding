@@ -1,5 +1,4 @@
 import { default as React, Component } from "react";
-import { render } from "react-dom";
 import { ServeStep } from "./ServeStep";
 import { dataOperation } from "../service/DataOperation";
 import { LogoutScreen } from "../header/LogoutScreen";

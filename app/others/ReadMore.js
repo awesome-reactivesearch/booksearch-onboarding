@@ -1,5 +1,4 @@
 import { default as React, Component } from 'react';
-import { render } from 'react-dom';
 import { readLinks } from '../service/default';
 
 export class ReadMore extends Component {

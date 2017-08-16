@@ -52,12 +52,15 @@ const RangeSliderMarkup = `
 
 const DateRangeMarkup = `
 <pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>DateRange
-    componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>DateRangeSensor</span><span style='color:#800000; '>"</span>
-    appbaseField<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_from</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_to</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span><span style='color:#800080; '>}</span>
-    title<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>When</span><span style='color:#800000; '>"</span>
-    numberOfMonths<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#008c00; '>1</span><span style='color:#800080; '>}</span>
-    customQuery<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>.</span>dateQuery<span style='color:#800080; '>}</span>
-<span style='color:#808030; '>/</span><span style='color:#808030; '>></span>
+	appbaseField<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_from</span><span style='color:#800000; '>"</span>
+	componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>DateRangeSensor</span><span style='color:#800000; '>"</span>
+	title<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>When</span><span style='color:#800000; '>"</span>
+	numberOfMonths<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#008c00; '>1</span><span style='color:#800080; '>}</span>
+	queryFormat<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>basic_date</span><span style='color:#800000; '>"</span>
+	extra<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
+		initialVisibleMonth<span style='color:#800080; '>:</span> <span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>=</span><span style='color:#808030; '>></span> moment<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>2017-04-01</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span>
+	<span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
+<span style='color:#800000; '>/</span><span style='color:#0000e6; '>></span>
 </pre>
 `;
 
@@ -73,32 +76,6 @@ const ResultCardMarkup = `
 <span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;and:</span> <span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>DateRangeSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>GuestSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>PriceSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span>
     <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
 <span style='color:#808030; '>/</span><span style='color:#808030; '>></span>
-</pre>
-`;
-
-const DateFn = `
-<pre style='color:#000000;background:#ffffff;'>dateQuery<span style='color:#808030; '>(</span>value<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
-    <span style='color:#800000; font-weight:bold; '>let</span> query <span style='color:#808030; '>=</span> <span style='color:#0f4d75; '>null</span><span style='color:#800080; '>;</span>
-    <span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#808030; '>(</span>value<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
-        query <span style='color:#808030; '>=</span> <span style='color:#808030; '>[</span>
-            <span style='color:#800080; '>{</span>
-                <span style='color:#800000; '>"</span><span style='color:#0000e6; '>range</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
-                    <span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_from</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
-                        <span style='color:#800000; '>"</span><span style='color:#0000e6; '>lte</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> moment<span style='color:#808030; '>(</span>value<span style='color:#808030; '>.</span>startDate<span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>format<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>YYYYMMDD</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span>
-                    <span style='color:#800080; '>}</span>
-                <span style='color:#800080; '>}</span>
-            <span style='color:#800080; '>}</span><span style='color:#808030; '>,</span>
-            <span style='color:#800080; '>{</span>
-                <span style='color:#800000; '>"</span><span style='color:#0000e6; '>range</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
-                    <span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_to</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
-                        <span style='color:#800000; '>"</span><span style='color:#0000e6; '>gte</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> moment<span style='color:#808030; '>(</span>value<span style='color:#808030; '>.</span>endDate<span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>format<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>YYYYMMDD</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span>
-                    <span style='color:#800080; '>}</span>
-                <span style='color:#800080; '>}</span>
-            <span style='color:#800080; '>}</span>
-        <span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
-    <span style='color:#800080; '>}</span>
-    <span style='color:#800000; font-weight:bold; '>return</span> query<span style='color:#800080; '>;</span>
-<span style='color:#800080; '>}</span>
 </pre>
 `;
 
@@ -137,7 +114,6 @@ export default class DemoComponents extends Component {
 						<div className="left-col">
 							<div className="code-div">
 								{renderHTML(DateRangeMarkup)} <br/>
-								{renderHTML(DateFn)}
 							</div>
 						</div>
 						<div className="right-col">

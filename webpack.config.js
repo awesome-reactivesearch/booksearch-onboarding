@@ -1,30 +1,26 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-	entry: './app/app.js',
-	output: {
-		path: path.join(__dirname, 'dist/js'),
-		publicPath: '/dist/js', // instead of publicPath: '/build/'
-		filename: 'app.js'
+	context: path.resolve(__dirname, "app"),
+	entry: {
+		main: "./app.js"
 	},
-	inline: true,
+	output: {
+		path: path.resolve(__dirname, "dist/js"),
+		filename: "app.js",
+		publicPath: "/dist/js"
+	},
 	module: {
-		preLoaders: [
-				{ test: /\.json$/, exclude: /node_modules/, loader: 'json'},
-		],
-		loaders: [
+		rules: [
 			{
 				test: /.jsx?$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/,
-				query: {
-					presets: ['es2015','stage-0', 'react']
-				}
+				loader: "babel-loader",
+				exclude: /node_modules/
 			},
 			{
 				test: /node_modules\/JSONStream\/index\.js$/,
-				loaders: ['shebang', 'babel']
+				use: ["shebang-loader", "babel-loader"]
 			},
 			{
 				test: /\.css$/,
@@ -36,12 +32,11 @@ module.exports = {
 			},
 			{
 				test: /\.json$/,
-				loader: 'json'
+				loader: 'json-loader'
 			},
 			{ test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
 			{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
-		],
-		noParse: ['ws']
+		]
 	},
-	externals: ['ws']
+	externals: ["ws"]
 };

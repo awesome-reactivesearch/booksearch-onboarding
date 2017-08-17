@@ -42,7 +42,7 @@ export class LiveExample extends Component {
 
 					<div className="sensor-wrapper clearfix">
 						<DateRange
-							appbaseField="date_from"
+							appbaseField={["date_from", "date_to"]}
 							componentId="DateRangeSensor"
 							title="When"
 							numberOfMonths={1}

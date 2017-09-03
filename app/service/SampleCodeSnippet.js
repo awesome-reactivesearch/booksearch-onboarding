@@ -36,7 +36,7 @@ class Main extends React.Component {
 
 					<div className="sensor-wrapper clearfix">
 						<DateRange
-							appbaseField={["date_from", "date_to"]}
+							dataField={["date_from", "date_to"]}
 							componentId="DateRangeSensor"
 							title="When"
 							numberOfMonths={1}
@@ -48,7 +48,7 @@ class Main extends React.Component {
 
 						<RangeSlider
 							componentId="PriceSensor"
-							appbaseField="price"
+							dataField="price"
 							title="Price Range"
 							defaultSelected={{
 								start: 10,
@@ -70,7 +70,7 @@ class Main extends React.Component {
 
 						<NumberBox
 							componentId="GuestSensor"
-							appbaseField="accommodates"
+							dataField="accommodates"
 							title="Guests"
 							defaultSelected={2}
 							data={{
@@ -85,7 +85,7 @@ class Main extends React.Component {
 							<div className="row">
 								<ResultCard
 									componentId="SearchResult"
-									appbaseField="name"
+									dataField="name"
 									from={0}
 									size={12}
 									onData={this.onData}

@@ -10,7 +10,7 @@
   },
   "author": "Deepak Grover",
   "dependencies": {
-    "@appbaseio/reactivesearch": "^1.0.0-beta03",
+    "@appbaseio/reactivesearch": "^1.0.0-beta05",
     "clipboard": "^1.6.0",
     "fbemitter": "^2.1.1",
     "jquery": "^3.1.1",
@@ -24,7 +24,7 @@
     "sass-loader": "^6.0.3"
   },
   "devDependencies": {
-   "babel-core": "^6.24.1",
+    "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",

@@ -2,14 +2,13 @@
 # yarn lockfile v1
 
 
-"@appbaseio/reactivebase@1.0.0-beta08":
-  version "1.0.0-beta08"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-beta08.tgz#afcdd27fd8e8cc1b707879772703b9c8754cc005"
+"@appbaseio/reactivebase@1.0.0-beta12":
+  version "1.0.0-beta12"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-beta12.tgz#e7bc9ba8870dc7b7b19c83dcd98c1e30f62a9ace"
   dependencies:
     appbase-js "^0.11.0"
     classnames "^2.2.5"
     fbemitter "^2.1.1"
-    jquery "^3.1.1"
     lodash "^4.17.4"
     moment "^2.14.1"
     rc-slider "^5.4.0"
@@ -21,22 +20,22 @@
     react-select "^1.0.0-rc.3"
     url-search-params "^0.8.0"
 
-"@appbaseio/reactivemaps@1.0.0-beta05":
-  version "1.0.0-beta05"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-beta05.tgz#8b9925be126be64db8a9d21a0cb09027c33f0b39"
+"@appbaseio/reactivemaps@1.0.0-beta08":
+  version "1.0.0-beta08"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-beta08.tgz#ffd93208663cbf0604bf1e36b903c3dd707a9aa4"
   dependencies:
-    "@appbaseio/reactivebase" "1.0.0-beta08"
+    "@appbaseio/reactivebase" "1.0.0-beta12"
     axios "^0.15.2"
     google-map-react "^0.14.5"
     google-maps "^3.2.1"
     node-sass "^4.5.1"
     react-google-maps "^4.11.0"
 
-"@appbaseio/reactivesearch@^1.0.0-beta03":
-  version "1.0.0-beta03"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-1.0.0-beta03.tgz#d1705abcfea4d5dfa1fca64d487c44981fd91cfd"
+"@appbaseio/reactivesearch@^1.0.0-beta05":
+  version "1.0.0-beta05"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-1.0.0-beta05.tgz#c443736c75038dd89e594d8b9b973e2fb22b1547"
   dependencies:
-    "@appbaseio/reactivemaps" "1.0.0-beta05"
+    "@appbaseio/reactivemaps" "1.0.0-beta08"
     react-stars "^2.1.0"
 
 JSONStream@^1.0.4:

@@ -1,2 +1,2 @@
-# airbeds-onboarding
-Onboarding for Airbeds app
+# todomvc-onboarding
+Onboarding for TodoMVC app

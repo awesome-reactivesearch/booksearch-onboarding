@@ -1,83 +1,47 @@
 import React, { Component } from "react";
 import renderHTML from "react-render-html";
 
-const ReactivebaseMarkup = `
-<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>ReactiveBase
-    app<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>housing</span><span style='color:#800000; '>"</span>
-    credentials<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>0aL1X5Vts:1ee67be1-9195-4f4b-bd4f-a91cd1b5e4b5</span><span style='color:#800000; '>"</span>
-    type<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>listing</span><span style='color:#800000; '>"</span>
-    theme<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>rbc-red</span><span style='color:#800000; '>"</span>
+const ReactivebaseMarkup = `<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>ReactiveBase
+  app<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>todomvc</span><span style='color:#800000; '>"</span>
+  credentials<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>kDoV3s5Xk:4994cac6-00a3-4179-b159-b0adbfdde34b</span><span style='color:#800000; '>"</span>
+  type<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>todo_reactjs</span><span style='color:#800000; '>"</span>
 <span style='color:#808030; '>></span>
-</pre>
-`;
+</pre>`;
 
-const NumberBoxMarkup = `
-<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>NumberBox
-    componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>GuestSensor</span><span style='color:#800000; '>"</span>
-    dataField<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>accommodates</span><span style='color:#800000; '>"</span>
-    title<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>Guests</span><span style='color:#800000; '>"</span>
-    defaultSelected<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#008c00; '>2</span><span style='color:#800080; '>}</span>
-    data<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;start:</span> <span style='color:#008c00; '>1</span><span style='color:#808030; '>,</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;end:</span> <span style='color:#008c00; '>16</span>
-    <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
+const TextFieldMarkup = `<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>TextField
+  componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>NewTodoSensor</span><span style='color:#800000; '>"</span>
+  className<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>new-todo-container</span><span style='color:#800000; '>"</span>
+  placeholder<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>What needs to be done?</span><span style='color:#800000; '>"</span>
+  onKeyDown<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>.</span>handleNewTodoKeyDown<span style='color:#808030; '>.</span><span style='color:#400000; '>bind</span><span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>)</span><span style='color:#800080; '>}</span>
+  onValueChange<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>.</span>handleChange<span style='color:#808030; '>.</span><span style='color:#400000; '>bind</span><span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>)</span><span style='color:#800080; '>}</span>
+  defaultSelected<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>.</span>state<span style='color:#808030; '>.</span>newTodo<span style='color:#800080; '>}</span>
 <span style='color:#808030; '>/</span><span style='color:#808030; '>></span>
-</pre>
-`;
+</pre>`;
 
-const RangeSliderMarkup = `
-<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>RangeSlider
-    componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>PriceSensor</span><span style='color:#800000; '>"</span>
-    dataField<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>price</span><span style='color:#800000; '>"</span>
-    title<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>Price Range</span><span style='color:#800000; '>"</span>
-    defaultSelected<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;start:</span> <span style='color:#008c00; '>10</span><span style='color:#808030; '>,</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;end:</span> <span style='color:#008c00; '>50</span>
-    <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
-    stepValue<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#008c00; '>10</span><span style='color:#800080; '>}</span>
-    range<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;start:</span> <span style='color:#008c00; '>10</span><span style='color:#808030; '>,</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;end:</span> <span style='color:#008c00; '>250</span>
-    <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
-    rangeLabels<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;start:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>$10</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;end:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>$250</span><span style='color:#800000; '>"</span>
-    <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
-    react<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;and:</span> <span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>DateRangeSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>GuestSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span>
-    <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
+const ToggleButtonMarkup = `<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>ToggleButton
+  componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>FiltersSensor</span><span style='color:#800000; '>"</span>
+  dataField<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>completed</span><span style='color:#800000; '>"</span>
+  defaultSelected<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#808030; '>[</span>nowShowing<span style='color:#808030; '>]</span><span style='color:#800080; '>}</span>
+  multiSelect<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span>false<span style='color:#800080; '>}</span>
+  data<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#808030; '>[</span>
+    <span style='color:#ffffff; background:#dd0000; font-weight:bold; font-style:italic; '>{</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>label</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>all</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>value</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>all</span><span style='color:#800000; '>"</span><span style='color:#ffffff; background:#dd0000; font-weight:bold; font-style:italic; '>}</span><span style='color:#808030; '>,</span>
+    <span style='color:#ffffff; background:#dd0000; font-weight:bold; font-style:italic; '>{</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>label</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>active</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>value</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>active</span><span style='color:#800000; '>"</span><span style='color:#ffffff; background:#dd0000; font-weight:bold; font-style:italic; '>}</span><span style='color:#808030; '>,</span>
+    <span style='color:#ffffff; background:#dd0000; font-weight:bold; font-style:italic; '>{</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>label</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>completed</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>value</span><span style='color:#800000; '>"</span><span style='color:#800080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>completed</span><span style='color:#800000; '>"</span><span style='color:#ffffff; background:#dd0000; font-weight:bold; font-style:italic; '>}</span><span style='color:#808030; '>]</span><span style='color:#800080; '>}</span>
+  customQuery<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span><span style='color:#800080; '>}</span>
 <span style='color:#808030; '>/</span><span style='color:#808030; '>></span>
-</pre>
-`;
+</pre>`;
 
-const DateRangeMarkup = `
-<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>DateRange
-	dataField<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_from</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>date_to</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span><span style='color:#800080; '>}</span>
-	componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>DateRangeSensor</span><span style='color:#800000; '>"</span>
-	title<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>When</span><span style='color:#800000; '>"</span>
-	numberOfMonths<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#008c00; '>1</span><span style='color:#800080; '>}</span>
-	queryFormat<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>basic_date</span><span style='color:#800000; '>"</span>
-	extra<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
-		initialVisibleMonth<span style='color:#800080; '>:</span> <span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>=</span><span style='color:#808030; '>></span> moment<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>2017-04-01</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span>
-	<span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
-<span style='color:#800000; '>/</span><span style='color:#0000e6; '>></span>
-</pre>
-`;
-
-const ResultCardMarkup = `
-<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>ResultCard
-    componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>SearchResult</span><span style='color:#800000; '>"</span>
-    dataField<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>name</span><span style='color:#800000; '>"</span>
-    from<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#008c00; '>0</span><span style='color:#800080; '>}</span>
-    size<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#008c00; '>12</span><span style='color:#800080; '>}</span>
-    onData<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>.</span>onData<span style='color:#800080; '>}</span>
-    pagination<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span>true<span style='color:#800080; '>}</span>
-    react<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
-<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;and:</span> <span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>DateRangeSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>GuestSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>PriceSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span>
-    <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
+const ReactiveListMarkup = `<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>ReactiveList
+  stream<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span>true<span style='color:#800080; '>}</span>
+  react<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
+<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;or:</span> <span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>FiltersSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span>
+  <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
+  scrollOnTarget<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span>window<span style='color:#800080; '>}</span>
+  showResultStats<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span>false<span style='color:#800080; '>}</span>
+  pagination<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span>false<span style='color:#800080; '>}</span>
+  onAllData<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>.</span>onAllData<span style='color:#800080; '>}</span>
 <span style='color:#808030; '>/</span><span style='color:#808030; '>></span>
-</pre>
-`;
+</pre>`;
 
 export default class DemoComponents extends Component {
 	render() {
@@ -93,7 +57,7 @@ export default class DemoComponents extends Component {
 							</div>
 						</div>
 						<div className="right-col">
-							<p><strong>ReactiveBase</strong> is the first component in a ReactiveSearch app, it connects the UI layer with the appbase.io DB service, where we indexed the Airbnb dataset.</p>
+							<p><strong>ReactiveBase</strong> is the base wrapper component for all ReactiveSearch components that binds the back-end datastore with the UI components, allowing them to be reactively updated every time there is a change in the datastore or in the UI view components.</p>
 							<p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/getting-started/ReactiveBase.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
@@ -101,51 +65,39 @@ export default class DemoComponents extends Component {
 					<div className="row">
 						<div className="left-col">
 							<div className="code-div">
-								{renderHTML(NumberBoxMarkup)}
+								{renderHTML(TextFieldMarkup)}
 							</div>
 						</div>
 						<div className="right-col">
-							<img src="https://i.imgur.com/nGe0rYe.png" />
-							<p><strong>NumberBox</strong> creates a NumberBox UI component. It prunes available listings based on the number of current selected guests. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/NumberBox.html" target="_blank">here</a>.</p>
+							<img src="https://i.imgur.com/DmDB9zF.png" />
+							<p><strong>TextField</strong> creates a simple text input field component that is optionally data connected. We’ll be using TextField here for adding new todo. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/TextField.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
 
 					<div className="row">
 						<div className="left-col">
 							<div className="code-div">
-								{renderHTML(DateRangeMarkup)} <br/>
+								{renderHTML(ToggleButtonMarkup)}
 							</div>
 						</div>
 						<div className="right-col">
-							<img src="https://i.imgur.com/1NQyO0H.png" />
-							<p><strong>DateRange</strong> creates a calendar view based UI component. It filters the available listings based on a user selected date range. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/DateRange.html" target="_blank">here</a>.</p>
+							<img src="https://i.imgur.com/91V7HPR.png" />
+							<p><strong>ToggleButton</strong> creates a toggle button UI component that is used for filtering results based on a fixed set of toggle-able options. We’ll be using ToggleButton here to filter “all”, “active”, “completed” todos. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/ToggleButton.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
 
 					<div className="row">
 						<div className="left-col">
 							<div className="code-div">
-								{renderHTML(RangeSliderMarkup)}
+								{renderHTML(ReactiveListMarkup)} <br/>
 							</div>
 						</div>
 						<div className="right-col">
-							<img src="https://i.imgur.com/WE8Fvpt.png" />
-							<p><strong>RangeSlider</strong> creates a numeric range based UI component. We will use it to create a price filter. Additionally, we will use the <code>react</code> prop to only display price ranges of the available listings. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/RangeSlider.html" target="_blank">here</a>.</p>
+							<img src="https://i.imgur.com/ZUXaR28.png" />
+							<p><strong>ReactiveList</strong> is an actuator component to display results in a list layout, suited for data that needs a compact display. We’ll use ReactiveList to show the list of todos. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/ReactiveList.html" target="_blank">here</a>.</p>
 						</div>
 					</div>
 
-
-					<div className="row">
-						<div className="left-col">
-							<div className="code-div">
-								{renderHTML(ResultCardMarkup)}
-							</div>
-						</div>
-						<div className="right-col">
-							<img src="https://i.imgur.com/ZdofPeT.png" />
-							<p><strong>ResultCard</strong> renders the available listings based on the applied filters in a card format and comes with a built-in support for pagination. Notice the use of <code>react</code> prop for specifying how to filter the data.</p>
-						</div>
-					</div>
 				</div>
 				<button className="btn btn-primary pos-static submit-btn" onClick={() => this.props.nextStep()}>
 					Next

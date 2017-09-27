@@ -3,7 +3,7 @@ import { ServeStep } from "./ServeStep";
 import { dataOperation } from "../service/DataOperation";
 import { LogoutScreen } from "../header/LogoutScreen";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import Clipboard from "Clipboard";
+import Clipboard from "clipboard";
 
 export class Steps extends Component {
 	constructor(props) {
@@ -73,7 +73,7 @@ export class Steps extends Component {
 	}
 
 	stepRender() {
-		if (this.state.currentStep == 3) {
+		if (this.state.currentStep === 3) {
 			let snippet = dataOperation.appSnippet();
 			new Clipboard(".copy-btn", {
 				text: function(trigger) {
@@ -195,28 +195,28 @@ export class Steps extends Component {
 							Reactive Search Tutorial
 							<span className="pull-right">{this.state.currentStep + 1} of 4</span>
 						</h3>
-						<li className={(this.state.currentStep == 0 ? "active" : this.state.completedStep >= 0 ? "finished" : null)}>
+						<li className={(this.state.currentStep === 0 ? "active" : this.state.completedStep >= 0 ? "finished" : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">1</span>
 							</span>
-							Indexing Airbnb Dataset
+							Preparing Sample Dataset
 						</li>
-						<li className={(this.state.currentStep == 1 ? "active" : this.state.completedStep >= 1 ? "finished" : null)}>
+						<li className={(this.state.currentStep === 1 ? "active" : this.state.completedStep >= 1 ? "finished" : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">2</span>
 							</span>
 							Assembling UI Components
 						</li>
-						<li className={(this.state.currentStep == 2 ? "active" : this.state.completedStep >= 2 ? "finished" : null)}>
+						<li className={(this.state.currentStep === 2 ? "active" : this.state.completedStep >= 2 ? "finished" : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">3</span>
 							</span>
 							Save Progress in an App
 						</li>
-						<li className={(this.state.currentStep == 3 ? "active" : this.state.completedStep >= 3 ? "finished" : null)}>
+						<li className={(this.state.currentStep === 3 ? "active" : this.state.completedStep >= 3 ? "finished" : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">4</span>
@@ -226,7 +226,7 @@ export class Steps extends Component {
 					</ul>
 					{this.renderComponent("credentials")}
 					<span className="skip-link">
-						<iframe  frameBorder="0" src="https://ghbtns.com/github-btn.html?user=appbaseio&amp;repo=reactivesearch&amp;type=star&amp;count=true&amp;size=large" scrolling="0" width="160px" height="30px"></iframe>
+						<iframe frameBorder="0" src="https://ghbtns.com/github-btn.html?user=appbaseio&amp;repo=reactivesearch&amp;type=star&amp;count=true&amp;size=large" scrolling="0" width="160px" height="30px"></iframe>
 					</span>
 				</div>
 				<div className="onboarding-navbar">

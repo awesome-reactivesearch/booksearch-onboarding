@@ -6,7 +6,8 @@
   "scripts": {
     "webpack-server": "webpack-dev-server --hot --inline --progress --colors --port 8000",
     "start": "concurrently \"npm run webpack-server\" \"gulp watch\"",
-    "build": "set NODE_ENV=production && webpack -p --progress && gulp"
+    "build": "set NODE_ENV=production && webpack -p --progress && gulp",
+    "postinstall" : "bower install"
   },
   "author": "Deepak Grover",
   "dependencies": {

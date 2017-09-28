@@ -165,7 +165,14 @@ class DataOperation {
 	}
 
 	htmlSnippet(method) {
-		let min_html = `<div id="root"></div>`;
+		let min_html = `<section class="todoapp"></section>
+<footer class="info">
+  <p>Double-click to edit a todo</p>
+  <p>Built by <a href="https://github.com/dhruvdutt/">dhruvdutt</a></p>
+  <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
+
+`;
 		let max_html = `<!doctype html>
 <html>
 
@@ -187,7 +194,12 @@ class DataOperation {
 	<script type="text/javascript" src="https://rawgit.com/appbaseio/reactivesearch/v1.3.3/umd/reactivesearch.js"></script>
 </head>
 <body>
-	<div id="root"></div>
+	<section class="todoapp"></section>
+	<footer class="info">
+	  <p>Double-click to edit a todo</p>
+	  <p>Built by <a href="https://github.com/dhruvdutt/">dhruvdutt</a></p>
+	  <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+	</footer>
 </body>
 
 </html>`;

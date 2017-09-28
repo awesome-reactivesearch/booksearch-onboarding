@@ -10,7 +10,7 @@ export class ServeStep extends Component {
 	}
 
 	renderComponent() {
-		switch(this.prop.step) {
+		switch(this.props.step) {
 			case 0:
 				return (<SampleDataContainer {...this.props}></SampleDataContainer>);
 			break;

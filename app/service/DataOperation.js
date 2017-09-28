@@ -174,14 +174,17 @@ class DataOperation {
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="shortcut icon" href="assets/images/favicon.ico" />
 	<title>Reactive Search Sample</title>
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" />
-	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/appbaseio/reactivesearch/master/dist/css/style.min.css" />
+	<!-- CSS
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/todomvc-app-css/base.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/todomvc-app-css/index.css" />
+	<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/dhruvdutt/todomvc-appbase/master/app/todomvc.scss" />
 	<!-- JavaScript -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js"></script>
-	<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/appbaseio/reactivesearch/master/umd/ReactiveSearch.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/classnames/index.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/director/build/director.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/appbaseio/appbase-js/master/dist/appbase.js"></script>
+	<script type="text/javascript" src="https://rawgit.com/appbaseio/reactivesearch/v1.3.3/umd/reactivesearch.js"></script>
 </head>
 <body>
 	<div id="root"></div>
@@ -196,11 +199,15 @@ class DataOperation {
 	}
 	resources() {
 		let resources = [
-			'https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js',
-			'https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js',
-			'https://cdn.rawgit.com/appbaseio/reactivesearch/master/umd/ReactiveSearch.js',
-			'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css',
-			'https://rawgit.com/appbaseio/reactivesearch/master/dist/css/style.min.css',
+			'https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js',
+			'https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js',
+			'https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/classnames/index.js',
+			'https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/director/build/director.js',
+			'https://cdn.rawgit.com/appbaseio/appbase-js/master/dist/appbase.js',
+			'https://rawgit.com/appbaseio/reactivesearch/v1.3.3/umd/reactivesearch.js',
+			'https://raw.githubusercontent.com/dhruvdutt/todomvc-appbase/master/app/todomvc.scss',
+			'https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/todomvc-common/base.css',
+			'https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/todomvc-app-css/index.css',
 		];
 		return resources.join(',');
 	}

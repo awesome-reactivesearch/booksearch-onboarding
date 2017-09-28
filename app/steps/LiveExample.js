@@ -52,28 +52,6 @@ export class LiveExample extends Component {
 							}}
 						/>
 
-						<RangeSlider
-							componentId="PriceSensor"
-							dataField="price"
-							title="Price Range"
-							defaultSelected={{
-								start: 10,
-								end: 50
-							}}
-							stepValue={10}
-							range={{
-								start: 10,
-								end: 250
-							}}
-							rangeLabels={{
-								start: "$10",
-								end: "$250"
-							}}
-							react={{
-								and: ["DateRangeSensor", "GuestSensor"]
-							}}
-						/>
-
 						<NumberBox
 							componentId="GuestSensor"
 							dataField="accommodates"

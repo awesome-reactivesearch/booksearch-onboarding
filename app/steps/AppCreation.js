@@ -163,17 +163,18 @@ export class AppCreation extends Component {
 				.then(() => dataOperation.closeIndex())
 				.then(() => dataOperation.updateSettings("listing", settings))
 				.then(() => dataOperation.openIndex())
-				.then(() => dataOperation.updateMapping("listing", mapping))
+				// .then(() => dataOperation.updateMapping("listing", mapping))
 				.then((res) => {
 					this.props.toggleLoader();
 					this.props.toggleLoader("Assembling data and components for your app. Hold tight!");
-					dataOperation.indexData(data)
-					.on('data', (res) => {
-						this.props.nextStep();
-					})
-					.on('error', (err) => {
-						console.error("bulk failed: ", err);
-					});
+					this.props.nextStep();
+					// dataOperation.indexData(data)
+					// .on('data', (res) => {
+					// 	this.props.nextStep();
+					// })
+					// .on('error', (err) => {
+					// 	console.error("bulk failed: ", err);
+					// });
 				})
 				.catch((e) => {
 					console.log(e);

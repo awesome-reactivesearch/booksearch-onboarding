@@ -1,39 +1,36 @@
 import React, { Component } from "react";
+import renderHTML from "react-render-html";
 import data from "../service/sampleData";
 
+const TodoMarkup = `<pre style='color:#000000;background:#ffffff;'><span style='color:#800080; '>{</span>
+  id<span style='color:#800080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>73f462af37f1</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span>
+  title<span style='color:#800080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>Build TodoMVC app</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span>
+  completed<span style='color:#800080; '>:</span> <span style='color:#0f4d75; '>false</span><span style='color:#808030; '>,</span>
+  createdAt<span style='color:#800080; '>:</span> <span style='color:#008c00; '>1506527915473</span>
+<span style='color:#800080; '>}</span>
+</pre>`;
+
 export default class SampleDataContainer extends Component {
-	renderData() {
-		return data.map((row, index) => (
-			<tr key={index}>
-				<td>{row.id}</td>
-				<td>{row.title}</td>
-				<td>{row.completed}</td>
-				<td>{row.createdAt}</td>
-			</tr>
-		))
-	}
 
 	render() {
 		return (
 			<section className="single-step">
-				<h2>Preparing Sample Dataset</h2>
+				<h2>Todos storage structure</h2>
 				<p>
-					Every good app starts with data. We have prepared a sample Airbnb dataset to be indexed in our app. Hit the <strong>Next</strong> button at the bottom of the screen.
+					We would simply store todos in an array. The structure of each object would be:
 				</p>
-				<div className="table-container">
-					<table className="highlight responsive-table">
-						<thead>
-							<tr>
-								<th>id</th>
-								<th>title</th>
-								<th>completed</th>
-								<th>createdAt</th>
-							</tr>
-						</thead>
-						<tbody>
-							{this.renderData()}
-						</tbody>
-					</table>
+				<div className="docs-wrapper">
+					<div className="row">
+						<div className="left-col">
+							<div className="code-div">
+								{renderHTML(TodoMarkup)} <br/>
+							</div>
+						</div>
+						<div className="right-col">
+							<p>Each todo item would contain an <strong>id</strong> that is uniquely auto-generated, a <strong>title</strong>, <strong>completed</strong> status and a <strong>createdAt</strong> timestamp.</p>
+							{/* Hit the <strong>Next</strong> button at the bottom of the screen. */}
+						</div>
+					</div>
 				</div>
 
 				<button className="btn btn-primary pos-static submit-btn" onClick={() => this.props.nextStep()}>

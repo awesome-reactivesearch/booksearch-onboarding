@@ -3,7 +3,7 @@ import { dataOperation } from "../service/DataOperation";
 import { SampleCSS } from "../service/SampleCSS";
 import { JsonView } from "../others/JsonView";
 import { Tabs, Tab } from "react-bootstrap";
-import {LiveExample} from "./LiveExample";
+import LivePen from "./LivePen";
 
 export class LiveFiddle extends Component {
 	constructor(props) {
@@ -78,7 +78,7 @@ export class LiveFiddle extends Component {
 			<section className="single-step" id="codepen-step">
 				<Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
 					<Tab eventKey={1} title="Live">
-						<LiveExample config={{appbase: dataOperation.appConfig()}} />
+						<LivePen />
 					</Tab>
 					<Tab eventKey={2} title="JS">
 						{this.renderComponent("js")}

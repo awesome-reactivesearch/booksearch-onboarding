@@ -43,6 +43,33 @@ const ReactiveListMarkup = `<pre style='color:#000000;background:#ffffff;'><span
 <span style='color:#808030; '>/</span><span style='color:#808030; '>></span>
 </pre>`;
 
+const DataControllerMarkup = `<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>DataController
+  componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>ActiveCountSensor</span><span style='color:#800000; '>"</span>
+  visible<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#0f4d75; '>false</span><span style='color:#800080; '>}</span>
+  showFilter<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#0f4d75; '>false</span><span style='color:#800080; '>}</span>
+  customQuery<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span>
+    <span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span>value<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+      <span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#800080; '>{</span>
+        query<span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span>
+          match_all<span style='color:#800080; '>:</span> <span style='color:#800080; '>{</span><span style='color:#800080; '>}</span>
+        <span style='color:#800080; '>}</span>
+      <span style='color:#800080; '>}</span>
+    <span style='color:#800080; '>}</span>
+  <span style='color:#800080; '>}</span>
+<span style='color:#800000; '>/</span><span style='color:#0000e6; '>></span>
+</pre>`;
+
+const ReactiveElementMarkup = `<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>ReactiveElement
+  componentId<span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>ActiveCount</span><span style='color:#800000; '>"</span>
+  stream<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#0f4d75; '>true</span><span style='color:#800080; '>}</span>
+  showResultStats<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#0f4d75; '>false</span><span style='color:#800080; '>}</span>
+  onAllData<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>.</span>onAllData<span style='color:#808030; '>.</span>bind<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>)</span><span style='color:#800080; '>}</span>
+  react<span style='color:#808030; '>=</span><span style='color:#800080; '>{</span><span style='color:#800080; '>{</span>
+    or<span style='color:#800080; '>:</span> <span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>ActiveCountSensor</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span>
+  <span style='color:#800080; '>}</span><span style='color:#800080; '>}</span>
+<span style='color:#800000; '>/</span><span style='color:#0000e6; '>></span>
+</pre>`;
+
 const IndexMarkup = `<pre style='color:#000000;background:#ffffff;'><span style='color:#800000; font-weight:bold; '>this</span><span style='color:#808030; '>.</span>appbaseRef<span style='color:#808030; '>.</span><span style='color:#797997; '>index</span><span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>
   type<span style='color:#800080; '>:</span> ES_TYPE<span style='color:#808030; '>,</span>
   id<span style='color:#800080; '>:</span> id<span style='color:#808030; '>,</span>
@@ -115,7 +142,8 @@ export default class DemoComponents extends Component {
             </div>
             <div className="right-col">
               <img src="https://i.imgur.com/DmDB9zF.png" />
-              <p><strong>TextField</strong> creates a simple text input field component that is optionally data connected. We’ll be using TextField here for adding new todo. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/TextField.html" target="_blank">here</a>.</p>
+              <p><strong>TextField</strong> creates a simple text input field component that is optionally data connected. We’ll be using TextField here for adding new todo. </p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/TextField.html" target="_blank">here</a>.</p>
             </div>
           </div>
 
@@ -126,8 +154,9 @@ export default class DemoComponents extends Component {
               </div>
             </div>
             <div className="right-col">
-              <img src="https://i.imgur.com/91V7HPR.png" />
-              <p><strong>ToggleButton</strong> creates a toggle button UI component that is used for filtering results based on a fixed set of toggle-able options. We’ll be using ToggleButton here to filter “all”, “active”, “completed” todos. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/ToggleButton.html" target="_blank">here</a>.</p>
+              <img src="https://i.imgur.com/u05OBHO.png" />
+              <p><strong>ToggleButton</strong> creates a toggle button UI component that is used for filtering results based on a fixed set of toggle-able options. We’ll be using ToggleButton here to filter "all", "active", "completed" todos. </p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/ToggleButton.html" target="_blank">here</a>.</p>
             </div>
           </div>
 
@@ -138,8 +167,34 @@ export default class DemoComponents extends Component {
               </div>
             </div>
             <div className="right-col">
-              <img src="https://i.imgur.com/ZUXaR28.png" />
-              <p><strong>ReactiveList</strong> is an actuator component to display results in a list layout, suited for data that needs a compact display. We’ll use ReactiveList to show the list of todos. You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/ReactiveList.html" target="_blank">here</a>.</p>
+              <img src="https://i.imgur.com/xiwekVF.png" />
+              <p><strong>ReactiveList</strong> is an actuator component to display results in a list layout, suited for data that needs a compact display. We’ll use ReactiveList to show the list of todos. </p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/ReactiveList.html" target="_blank">here</a>.</p>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="left-col">
+              <div className="code-div">
+                {renderHTML(DataControllerMarkup)} <br/>
+              </div>
+            </div>
+            <div className="right-col">
+              <p><strong>DataController</strong> creates a UI optional component connected with a custom database query. We won’t directly show this component but rather use it as a sensor to show the "x items left" todos count. </p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/DataController.html" target="_blank">here</a>.</p>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="left-col">
+              <div className="code-div">
+                {renderHTML(ReactiveElementMarkup)} <br/>
+              </div>
+            </div>
+            <div className="right-col">
+              <img src="https://i.imgur.com/CvZCumw.png" />
+              <p><strong>ReactiveElement</strong> is a user defined data-driven UI component. It allows the user to define a custom UI for displaying the results, and can reactively update its UI on data changes in other components. We’ll use it here to show "x items left". </p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1.0.0/components/ReactiveElement.html" target="_blank">here</a>.</p>
             </div>
           </div>
 

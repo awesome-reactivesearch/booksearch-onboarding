@@ -1,9 +1,8 @@
 export const sampleCodeSnippet = `
 // Based on: http://todomvc.com/examples/react/#/
-const {
-  Component
-} = React
+const { Component } = React
 let app = app || {}
+let routerInstance
 
 const {
   ReactiveBase,
@@ -14,19 +13,19 @@ const {
   DataController
 } = ReactiveSearch
 
-const ES_TYPE = 'todo_reactjs'
-const APP_NAME = 'todomvc'
-const CREDENTIALS = 'kQSlRKaSv:a081eec0-b85f-4953-a3d0-c18f94b26de4'
+const ES_TYPE = "todo_reactjs"
+const APP_NAME = "todomvc"
+const CREDENTIALS = "kQSlRKaSv:a081eec0-b85f-4953-a3d0-c18f94b26de4"
 
 // Based on https://github.com/tastejs/todomvc/blob/gh-pages/examples/react/js/utils.js
 class Utils {
   static uuid () {
-    let i, random, id = '';
+    let i, random, id = "";
 
     for (i = 0; i < 32; i++) {
       random = Math.random() * 16 | 0;
       if (i === 8 || i === 12 || i === 16 || i === 20) {
-        id += '-'
+        id += "-"
       }
       id += (i === 12 ? 4 : (i === 16 ? (random & 3 | 8) : random))
       .toString(16)
@@ -35,7 +34,7 @@ class Utils {
   }
 
   static pluralize (count, word) {
-    return count === 1 ? word : word + 's'
+    return count === 1 ? word : word + "s"
   }
 
   static store (namespace, data) {
@@ -52,7 +51,7 @@ class Utils {
     let todosData = [];
 
     // streaming data
-    if (mode === 'streaming') {
+    if (mode === "streaming") {
       // todo is deleted
       if (newData && newData._deleted) {
         todosData = currentData.filter(data => data._id !== newData._id)
@@ -94,9 +93,9 @@ class TodoModel {
     this.todos = [];
     this.onChanges = [];
     this.appbaseRef = new Appbase({
-      url: 'https://scalr.api.appbase.io',
-      app: 'todomvc',
-      credentials: 'kQSlRKaSv:a081eec0-b85f-4953-a3d0-c18f94b26de4'
+      url: "https://scalr.api.appbase.io",
+      app: "todomvc",
+      credentials: "kQSlRKaSv:a081eec0-b85f-4953-a3d0-c18f94b26de4"
     });
 
     this.appbaseRef.search({
@@ -107,11 +106,11 @@ class TodoModel {
           match_all: {}
         }
       }
-    }).on('data', ({hits: {hits = []} = {}} = {}) => {
+    }).on("data", ({hits: {hits = []} = {}} = {}) => {
       this.todos = hits.map(({_source = {}} = {}) => _source);
       this.inform();
       console.log("search, match: ", hits)
-    }).on('error', (error) => {
+    }).on("error", (error) => {
       console.log("caught a search error: ", error)
     });
 
@@ -122,7 +121,7 @@ class TodoModel {
           match_all: {}
         }
       }
-    }).on('data', (stream) => {
+    }).on("data", (stream) => {
       let {
         _deleted,
         _source
@@ -140,7 +139,7 @@ class TodoModel {
       // this.todos = hits.map(({_source = {}} = {}) => _source)
       this.inform();
       console.log("searchStream, new match: ", stream)
-    }).on('error', (error) => {
+    }).on("error", (error) => {
       console.log("caught a searchStream, error: ", error)
     })
   }
@@ -173,16 +172,16 @@ class TodoModel {
       type: ES_TYPE,
       id: id,
       body: jsonObject
-    }).on('data', function(response) {
+    }).on("data", function(response) {
       console.log(response)
-    }).on('error', function(error) {
+    }).on("error", function(error) {
       console.log(error)
     })
   }
 
   toggleAll (checked) {
-    // Note: it's usually better to use immutable data structures since they're
-    // easier to reason about and React works very well with them. That's why
+    // Note: it"s usually better to use immutable data structures since they"re
+    // easier to reason about and React works very well with them. That"s why
     // we use map() and filter() everywhere instead of mutating the array or
     // todo items themselves.
     this.todos = this.todos.map((todo) => ({
@@ -220,9 +219,9 @@ class TodoModel {
         ...todoToToggle,
         completed: !todoToToggle.completed
       }
-    }).on('data', function(response) {
+    }).on("data", function(response) {
       console.log(response)
-    }).on('error', function(error) {
+    }).on("error", function(error) {
       console.log(error)
     })
   };
@@ -238,9 +237,9 @@ class TodoModel {
     this.appbaseRef.delete({
       type: ES_TYPE,
       id: todo.id
-    }).on('data', function(response) {
+    }).on("data", function(response) {
       console.log(response)
-    }).on('error', function(error) {
+    }).on("error", function(error) {
       console.log(error)
     })
   }
@@ -263,9 +262,9 @@ class TodoModel {
         ...todoToSave,
         title: text
       }
-    }).on('data', function(response) {
+    }).on("data", function(response) {
       console.log(response)
-    }).on('error', function(error) {
+    }).on("error", function(error) {
       console.log(error)
     })
   }
@@ -295,14 +294,17 @@ class TodoItem extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      editText: '',
+      editText: "",
       editing: false,
       autoFocus: false
     }
   }
 
   handleBlur (event) {
-    // console.log("blurr");
+    this.setState({
+      editText: this.props.todo.title,
+      editing: false
+    });
   }
 
   handleSubmit (event) {
@@ -316,13 +318,6 @@ class TodoItem extends Component {
     } else {
       this.props.onDestroy()
     }
-  }
-
-  onBlur () {
-    this.setState({
-      editText: '',
-      editing: false
-    })
   }
 
   handleEdit () {
@@ -353,13 +348,21 @@ class TodoItem extends Component {
     return {editText: this.props.todo.title}
   }
 
+  /**
+  * Safely manipulate the DOM after updating the state when invoking
+  * `this.props.onEdit()` in the `handleEdit` method above.
+  * For more info refer to notes at https://facebook.github.io/react/docs/component-api.html#setstate
+  * and https://facebook.github.io/react/docs/component-specs.html#updating-componentdidupdate
+  */
   componentDidUpdate (prevProps, prevState) {
     if (!prevState.editing && this.state.editing) {
-      // console.log("Setting focus");
       this.setState({ autoFocus: true });
-      // let node = ReactDOM.findDOMNode(this.refs.editField);
-      // node.focus();
-      // node.setSelectionRange(node.value.length, node.value.length)
+
+      // workaround because after setState re-rendering is not happening
+      let node = ReactDOM.findDOMNode(this.refs.editField);
+      node = node.childNodes[0].children[0];
+      node.focus();
+      node.setSelectionRange(node.value.length, node.value.length)
     }
   }
 
@@ -368,31 +371,34 @@ class TodoItem extends Component {
       <li className={classNames({
         completed: this.props.todo.completed,
         editing: this.state.editing
-      })}>
-      <div className="view">
-        <input
-          className="toggle"
-          type="checkbox"
-          checked={this.props.todo.completed}
-          onChange={this.props.onToggle}
+      })}
+      >
+        <div className="view">
+          <input
+            className="toggle"
+            type="checkbox"
+            checked={this.props.todo.completed}
+            onChange={this.props.onToggle}
+          />
+          <label onDoubleClick={this.handleEdit.bind(this)}>
+            {this.props.todo.title}
+          </label>
+          <button className="destroy" onClick={this.props.onDestroy} />
+        </div>
+        <TextField
+          ref="editField"
+          autoFocus={this.state.autoFocus}
+          componentId="EditSensor"
+          dataField="name"
+          className="edit-todo-container"
+          defaultSelected={this.state.editText}
+          onBlur={this.handleBlur.bind(this)}
+          onKeyDown={this.handleKeyDown.bind(this)}
+          onValueChange={this.handleChange.bind(this)}
         />
-        <label onDoubleClick={this.handleEdit.bind(this)}>
-          {this.props.todo.title}
-        </label>
-        <button className="destroy" onClick={this.props.onDestroy} />
-      </div>
-      <TextField
-        autoFocus={this.state.autoFocus}
-        componentId="EditSensor"
-        dataField="name"
-        className="edit-todo-container"
-        defaultSelected={this.state.editText}
-        onBlur={this.handleBlur.bind(this)}
-        onKeyDown={this.handleKeyDown.bind(this)}
-        onValueChange={this.handleChange.bind(this)}
-      />
-    </li>
-  )}
+      </li>
+    )
+  }
 }
 
 // Based on: https://github.com/tastejs/todomvc/blob/gh-pages/examples/react/js/footer.jsx
@@ -406,7 +412,8 @@ class TodoFooter extends Component {
       return todo._source.completed ? accum : accum + 1
     }, 0)
 
-    let activeTodoWord = Utils.pluralize(activeTodoCount, 'item');
+    let activeTodoWord = Utils.pluralize(activeTodoCount, "item");
+
     return(
       <span className="todo-count">
         <strong>{activeTodoCount}</strong> {activeTodoWord} left
@@ -416,18 +423,18 @@ class TodoFooter extends Component {
 
   render () {
     let clearButton = null;
+    let { completedCount, onClearCompleted, nowShowing } = this.props;
 
-    if (this.props.completedCount > 0) {
+    if (completedCount > 0) {
       clearButton = (
         <button
           className="clear-completed"
-          onClick={this.props.onClearCompleted}>
+          onClick={onClearCompleted}>
           Clear completed
         </button>
       )
     }
 
-    let nowShowing = this.props.nowShowing;
     return (
       <footer className="footer">
         <DataController
@@ -459,33 +466,12 @@ class TodoFooter extends Component {
             dataField="completed"
             defaultSelected={[nowShowing]}
             multiSelect={false}
+            onValueChange={this.props.handleToggle}
             customQuery={
-              function(data) {
-                let val;
-                if (Array.isArray(data)) {
-                  val = data[0].value;
-                }
-                const completed = (val === 'completed') ? true : (val === 'active') ? false : 'all';
-
-                if (completed === 'all') {
-                  return {
-                    query: {
-                      match_all: {}
-                    }
-                  }
-                }
-
+              function() {
                 return {
-                  "query": {
-                    "bool": {
-                      "must": [
-                        {
-                          "match": {
-                            "completed": completed
-                          }
-                        }
-                      ]
-                    }
+                  query: {
+                    match_all: {}
                   }
                 }
               }
@@ -506,30 +492,36 @@ class TodoFooter extends Component {
 }
 
 // Based on: https://github.com/tastejs/todomvc/blob/gh-pages/examples/react/js/app.jsx
-const ALL_TODOS = 'all'
-const ACTIVE_TODOS = 'active'
-const COMPLETED_TODOS = 'completed'
+const ALL_TODOS = "all"
+const ACTIVE_TODOS = "active"
+const COMPLETED_TODOS = "completed"
 class TodoApp extends Component {
   constructor (props) {
     super(props);
     this.state = {
       nowShowing: ALL_TODOS,
       editing: null,
-      newTodo: ''
+      newTodo: ""
     }
     this.onAllData = this.onAllData.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.clearCompleted = this.clearCompleted.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
 
   componentDidMount () {
-    let setState = this.setState;
-    let router = Router({
-      '/': setState.bind(this, {nowShowing: ALL_TODOS}),
-      '/active': setState.bind(this, {nowShowing: ACTIVE_TODOS}),
-      '/completed': setState.bind(this, {nowShowing: COMPLETED_TODOS})
+    let { setState } = this;
+    routerInstance = Router({
+      "/": setState.bind(this, {nowShowing: ALL_TODOS}),
+      "/all": setState.bind(this, {nowShowing: ALL_TODOS}),
+      "/active": setState.bind(this, {nowShowing: ACTIVE_TODOS}),
+      "/completed": setState.bind(this, {nowShowing: COMPLETED_TODOS})
     });
-    router.init('/')
+    routerInstance.init("/")
+  }
+
+  handleToggle (e) {
+    routerInstance.setRoute("/" + e[0].value)
   }
 
   handleChange (newTodo) {
@@ -544,7 +536,7 @@ class TodoApp extends Component {
     const val = this.state.newTodo.trim();
     if (val) {
       this.props.model.addTodo(val);
-      this.setState({newTodo: ''})
+      this.setState({newTodo: ""})
     }
   }
 
@@ -580,12 +572,18 @@ class TodoApp extends Component {
   onAllData(data) {
 
     // merging all streaming and historic data
-    var todosData = Utils.mergeTodos(data);
+    let todosData = Utils.mergeTodos(data);
+
+    if (this.state.nowShowing !== ALL_TODOS) {
+      todosData = todosData.filter(({ _source: todo }) => todo.completed === (this.state.nowShowing === COMPLETED_TODOS));
+    }
 
     // sorting todos based on creation time
     todosData = todosData.sort(function(a, b) {
       return a._source.createdAt - b._source.createdAt;
     });
+
+    console.log("todosData", todosData)
 
     return todosData.map(({ _source: todo }) => {
       return (
@@ -605,19 +603,21 @@ class TodoApp extends Component {
     main,
     todos = this.props.model.todos;
 
+    let { nowShowing, newTodo } = this.state;
+
     let activeTodoCount = todos.reduce((accum, todo) => {
       return todo.completed ? accum : accum + 1
     }, 0);
 
     let completedCount = todos.length - activeTodoCount;
-
     if (activeTodoCount || completedCount) {
       footer =
       <TodoFooter
         count={activeTodoCount}
         completedCount={completedCount}
-        nowShowing={this.state.nowShowing}
+        nowShowing={nowShowing}
         onClearCompleted={this.clearCompleted.bind(this)}
+        handleToggle={this.handleToggle}
       />
     }
 
@@ -625,47 +625,46 @@ class TodoApp extends Component {
       <ReactiveBase
         app="todomvc"
         credentials="kDoV3s5Xk:4994cac6-00a3-4179-b159-b0adbfdde34b"
-        type="todo_reactjs"
-        >
-          <header className="header">
-            <h1>todos</h1>
-            <TextField
-              componentId="NewTodoSensor"
-              dataField="title"
-              className="new-todo-container"
-              placeholder="What needs to be done?"
-              onKeyDown={this.handleNewTodoKeyDown.bind(this)}
-              onValueChange={this.handleChange.bind(this)}
-              defaultSelected={this.state.newTodo}
-              autoFocus={true}
-            />
-          </header>
+        type="todo_reactjs">
+        <header className="header">
+          <h1>todos</h1>
+          <TextField
+            componentId="NewTodoSensor"
+            dataField="title"
+            className="new-todo-container"
+            placeholder="What needs to be done?"
+            onKeyDown={this.handleNewTodoKeyDown.bind(this)}
+            onValueChange={this.handleChange.bind(this)}
+            defaultSelected={newTodo}
+            autoFocus={true}
+          />
+        </header>
 
-          <section className="main">
-            <input
-              className="toggle-all"
-              type="checkbox"
-              onChange={this.toggleAll.bind(this)}
-              checked={activeTodoCount === 0}
+        <section className="main">
+          <input
+            className="toggle-all"
+            type="checkbox"
+            onChange={this.toggleAll.bind(this)}
+            checked={activeTodoCount === 0}
+          />
+          <ul className="todo-list" key={nowShowing}>
+            <ReactiveList
+              stream={true}
+              react={{
+                or: ["FiltersSensor", nowShowing]
+              }}
+              scrollOnTarget={window}
+              showResultStats={false}
+              pagination={false}
+              onAllData={this.onAllData}
             />
-            <ul className="todo-list">
-              <ReactiveList
-                stream={true}
-                react={{
-                  or: ["FiltersSensor"]
-                }}
-                scrollOnTarget={window}
-                showResultStats={false}
-                pagination={false}
-                onAllData={this.onAllData}
-              />
-            </ul>
-          </section>
-          {footer}
-        </ReactiveBase>
-      )
-    }
+          </ul>
+        </section>
+        {footer}
+      </ReactiveBase>
+    )
   }
+}
 
 let model = new TodoModel('react-todos')
 let render = () => {

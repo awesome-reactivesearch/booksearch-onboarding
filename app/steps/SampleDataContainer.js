@@ -15,7 +15,7 @@ export default class SampleDataContainer extends Component {
 	render() {
 		return (
 			<section className="single-step">
-				<h2>Todos storage structure</h2>
+				<h2>Todo storage structure</h2>
 				<p>
 					We would simply store todos in an array. The structure of each object would be:
 				</p>

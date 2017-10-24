@@ -73,7 +73,7 @@ export class AppCreation extends Component {
 			<div>
 				<LoginScreen />
 				<p>
-					<a className="subscribe" style={linkStyles} onClick={() => this.props.nextStep()}>Skip to Airbnb App</a>
+					<a className="subscribe" style={linkStyles} onClick={() => this.props.nextStep()}>Skip to TodoMVC App</a>
 				</p>
 			</div>
 		);

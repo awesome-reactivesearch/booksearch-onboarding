@@ -86,9 +86,9 @@ export class LiveFiddle extends Component {
 					<Tab eventKey={3} title="HTML">
 						{this.renderComponent("html")}
 					</Tab>
-					<Tab eventKey={4} title="CSS">
+					{/* <Tab eventKey={4} title="CSS">
 						{this.renderComponent("css")}
-					</Tab>
+					</Tab> */}
 				</Tabs>
 				<div className="extra-btns">
 					<form action="https://codepen.io/pen/define" method="POST" target="_blank">

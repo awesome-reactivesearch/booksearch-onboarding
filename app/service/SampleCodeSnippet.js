@@ -594,7 +594,9 @@ class TodoApp extends Component {
       newTodo: ""
     }
     this.onAllData = this.onAllData.bind(this);
+    this.toggleAll = this.toggleAll.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleNewTodoKeyDown = this.handleNewTodoKeyDown.bind(this);
   }
 
   componentDidMount () {
@@ -656,13 +658,24 @@ class TodoApp extends Component {
   }
 
   render () {
-    let todos = this.props.model.todos;
+    let todos = this.props.model.todos, toggleAllSection;
 
     let { nowShowing, newTodo } = this.state;
 
     let activeTodoCount = todos.reduce((accum, todo) => {
       return todo.completed ? accum : accum + 1
     }, 0);
+
+    if (todos.length) {
+      toggleAllSection = (
+        <input
+          className="toggle-all"
+          type="checkbox"
+          onChange={this.toggleAll}
+          checked={activeTodoCount === 0}
+        />
+      );
+    }
 
     return (
       <ReactiveBase
@@ -688,20 +701,15 @@ class TodoApp extends Component {
             dataField="title"
             className="new-todo-container"
             placeholder="What needs to be done?"
-            onKeyDown={this.handleNewTodoKeyDown.bind(this)}
-            onValueChange={this.handleChange.bind(this)}
+            onKeyDown={this.handleNewTodoKeyDown}
+            onValueChange={this.handleChange}
             defaultSelected={newTodo}
             autoFocus={true}
           />
         </header>
 
         <section className="main">
-          <input
-            className="toggle-all"
-            type="checkbox"
-            onChange={this.toggleAll.bind(this)}
-            checked={activeTodoCount === 0}
-          />
+          {toggleAllSection}
           <ul className="todo-list">
             <ReactiveList
               stream={true}

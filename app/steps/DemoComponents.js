@@ -164,7 +164,7 @@ export default class DemoComponents extends Component {
             </div>
             <div className="right-col">
               <p><strong>ReactiveBase</strong> is the base wrapper component for all ReactiveSearch components that binds the back-end datastore with the UI components, allowing them to be reactively updated every time there is a change in the datastore or in the UI view components.</p>
-              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1/getting-started/ReactiveBase.html" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/getting-started/reactivebase.html" target="_blank">here</a>.</p>
             </div>
           </div>
 
@@ -177,7 +177,7 @@ export default class DemoComponents extends Component {
             <div className="right-col">
               <img src="https://i.imgur.com/DmDB9zF.png" />
               <p><strong>TextField</strong> creates a simple text input field component that is optionally data connected. We’ll be using TextField here for adding new todo. </p>
-              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1/components/TextField.html" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/basic-components/textfield.html" target="_blank">here</a>.</p>
             </div>
           </div>
 
@@ -193,9 +193,9 @@ export default class DemoComponents extends Component {
             <div className="right-col">
               <img src="https://i.imgur.com/S1K63r4.png" />
               <p><strong>DataController</strong> creates a UI optional component connected with a custom database query. We won’t directly show this component but rather use it as a pseudo component sensor to show the todos list. </p>
-              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1/components/DataController.html" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/basic-components/datacontroller.html" target="_blank">here</a>.</p>
               <p><strong>ReactiveList</strong> is an actuator component to display results in a list layout, suited for data that needs a compact display. We’ll use ReactiveList to show the list of todos. </p>
-              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1/components/ReactiveList.html" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/basic-components/reactivelist.html" target="_blank">here</a>.</p>
             </div>
           </div>
 
@@ -229,7 +229,7 @@ export default class DemoComponents extends Component {
               <img src="https://i.imgur.com/Pk4Uzk8.png" />
               <p>We had previously used the pseudo component <strong>DataController</strong> for showing TodoList. We’ll need it here again to show the “x items left” count.</p>
               <p><strong>ReactiveElement</strong> is a user defined data-driven UI component. It allows the user to define a custom UI for displaying the results, and can reactively update its UI on data changes in other components. We’ll use it here to show UI for number of items left. </p>
-              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/v1/components/ReactiveElement.html" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="https://opensource.appbase.io/reactive-manual/basic-components/reactiveelement.html" target="_blank">here</a>.</p>
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default class DemoComponents extends Component {
             <div className="right-col">
               <p><strong>index</strong> method writes a JSON data object at a given type and id location, or replaces if an object already exists.</p>
               <p>This method is used while adding, toggling, editing a todo. If the id is existing in our dataset, then it will replace the body and if it is not existing, then it will create a new object.</p>
-              <p>You can read more about it in the docs <a href="http://docs.appbase.io/scalr/javascript/api-reference.html#javascript-api-reference-writing-data-index" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="http://docs.appbase.io/javascript/api-reference.html#index" target="_blank">here</a>.</p>
             </div>
           </div>
 
@@ -257,9 +257,9 @@ export default class DemoComponents extends Component {
               </div>
             </div>
             <div className="right-col">
-              <p><strong>search</strong> method removes a JSON data object based on the id.</p>
+              <p><strong>delete</strong> method removes a JSON data object based on the id.</p>
               <p>We will use this to remove/delete a todo and clearing completed todos.</p>
-              <p>You can read more about it in the docs <a href="http://docs.appbase.io/scalr/javascript/api-reference.html#javascript-api-reference-writing-data-delete" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="http://docs.appbase.io/javascript/api-reference.html#delete" target="_blank">here</a>.</p>
             </div>
           </div>
 
@@ -274,7 +274,7 @@ export default class DemoComponents extends Component {
             <div className="right-col">
               <p><strong>search</strong> method is used for matching documents in a type. It’s a convenience method for ElasticSearch’s /_search endpoint.</p>
               <p>We will use it to initially load the todos in the TodoModel state.</p>
-              <p>You can read more about it in the docs <a href="http://docs.appbase.io/scalr/javascript/api-reference.html#javascript-api-reference-getting-data-search" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="http://docs.appbase.io/javascript/api-reference.html#search" target="_blank">here</a>.</p>
             </div>
           </div>
 
@@ -287,7 +287,7 @@ export default class DemoComponents extends Component {
             <div className="right-col">
               <p><strong>searchStream</strong> method is used for continuously streaming results of search query on a given type.</p>
               <p>We will use it to stream the todos data in the TodoModel state.</p>
-              <p>You can read more about it in the docs <a href="http://docs.appbase.io/scalr/javascript/api-reference.html#javascript-api-reference-streaming-data-searchstream" target="_blank">here</a>.</p>
+              <p>You can read more about it in the docs <a href="http://docs.appbase.io/javascript/api-reference.html#searchstream" target="_blank">here</a>.</p>
             </div>
           </div>
 

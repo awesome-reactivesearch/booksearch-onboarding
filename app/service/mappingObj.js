@@ -1,79 +1,156 @@
 export const mapping = {
-	"listing": {
-		"properties": {
-			"accommodates": {
-				"type": "integer"
-			},
-			"bathrooms": {
-				"type": "double"
-			},
-			"bed_type": {
-				"type": "string",
-				"fields": {
-					"raw": {
-						"type": "string",
-						"index": "not_analyzed"
-					}
+		"good-books-ds": {
+		  "properties": {
+			"authors": {
+			  "type": "text",
+			  "fields": {
+				"autosuggest": {
+				  "type": "text",
+				  "analyzer": "autosuggest_analyzer",
+				  "search_analyzer": "simple"
+				},
+				"raw": {
+				  "type": "keyword"
+				},
+				"search": {
+				  "type": "text",
+				  "analyzer": "ngram_analyzer",
+				  "search_analyzer": "simple"
 				}
+			  },
+			  "analyzer": "standard"
 			},
-			"bedrooms": {
-				"type": "integer"
+			"average_rating": {
+			  "type": "float"
 			},
-			"beds": {
-				"type": "integer"
+			"average_rating_rounded": {
+			  "type": "integer"
 			},
-			"date_from": {
-				"type": "date",
-				"format": "strict_date_optional_time||epoch_millis"
+			"books_count": {
+			  "type": "integer"
 			},
-			"date_to": {
-				"type": "date",
-				"format": "strict_date_optional_time||epoch_millis"
-			},
-			"has_availability": {
-				"type": "boolean"
-			},
-			"host_image": {
-				"type": "string"
-			},
-			"host_name": {
-				"type": "string"
+			"id": {
+			  "type": "integer"
 			},
 			"image": {
-				"type": "string"
-			},
-			"listing_url": {
-				"type": "string"
-			},
-			"location": {
-				"type": "geo_point"
-			},
-			"name": {
-				"type": "string",
-				"analyzer": "auto-suggest",
-				"search_analyzer": "standard"
-			},
-			"price": {
-				"type": "double"
-			},
-			"property_type": {
-				"type": "string",
-				"fields": {
-					"raw": {
-						"type": "string",
-						"index": "not_analyzed"
-					}
+			  "type": "text",
+			  "fields": {
+				"autosuggest": {
+				  "type": "text",
+				  "analyzer": "autosuggest_analyzer",
+				  "search_analyzer": "simple"
+				},
+				"raw": {
+				  "type": "keyword"
 				}
+			  },
+			  "analyzer": "standard"
 			},
-			"room_type": {
-				"type": "string",
-				"fields": {
-					"raw": {
-						"type": "string",
-						"index": "not_analyzed"
-					}
+			"image_medium": {
+			  "type": "text",
+			  "fields": {
+				"autosuggest": {
+				  "type": "text",
+				  "analyzer": "autosuggest_analyzer",
+				  "search_analyzer": "simple"
+				},
+				"raw": {
+				  "type": "keyword"
 				}
+			  },
+			  "analyzer": "standard"
+			},
+			"isbn": {
+			  "type": "text",
+			  "fields": {
+				"autosuggest": {
+				  "type": "text",
+				  "analyzer": "autosuggest_analyzer",
+				  "search_analyzer": "simple"
+				},
+				"raw": {
+				  "type": "keyword"
+				}
+			  },
+			  "analyzer": "standard"
+			},
+			"language_code": {
+			  "type": "text",
+			  "fields": {
+				"autosuggest": {
+				  "type": "text",
+				  "analyzer": "autosuggest_analyzer",
+				  "search_analyzer": "simple"
+				},
+				"raw": {
+				  "type": "keyword"
+				}
+			  },
+			  "analyzer": "standard"
+			},
+			"original_publication_year": {
+			  "type": "integer"
+			},
+			"original_series": {
+			  "type": "text",
+			  "fields": {
+				"autosuggest": {
+				  "type": "text",
+				  "analyzer": "autosuggest_analyzer",
+				  "search_analyzer": "simple"
+				},
+				"raw": {
+				  "type": "keyword"
+				},
+				"search": {
+				  "type": "text",
+				  "analyzer": "ngram_analyzer",
+				  "search_analyzer": "simple"
+				}
+			  },
+			  "analyzer": "standard"
+			},
+			"original_title": {
+			  "type": "text",
+			  "fields": {
+				"autosuggest": {
+				  "type": "text",
+				  "analyzer": "autosuggest_analyzer",
+				  "search_analyzer": "simple"
+				},
+				"raw": {
+				  "type": "keyword"
+				},
+				"search": {
+				  "type": "text",
+				  "analyzer": "ngram_analyzer",
+				  "search_analyzer": "simple"
+				}
+			  },
+			  "analyzer": "standard"
+			},
+			"ratings_count": {
+			  "type": "integer"
+			},
+			"title": {
+			  "type": "text",
+			  "fields": {
+				"autosuggest": {
+				  "type": "text",
+				  "analyzer": "autosuggest_analyzer",
+				  "search_analyzer": "simple"
+				},
+				"raw": {
+				  "type": "keyword"
+				},
+				"search": {
+				  "type": "text",
+				  "analyzer": "ngram_analyzer",
+				  "search_analyzer": "simple"
+				}
+			  },
+			  "analyzer": "standard"
 			}
+		  }
 		}
 	}
-};

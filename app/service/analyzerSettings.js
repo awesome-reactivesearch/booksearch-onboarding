@@ -1,26 +1,47 @@
 export const settings = {
 	"analysis": {
-		"tokenizer": {
-			"ngramizer": {
-				"type": "edge_ngram",
-				"min_gram": 1,
-				"max_gram": 10,
-				"token_chars": [
-					"letter",
-					"digit",
-					"punctuation",
-					"symbol"
-				]
-			}
-		},
+		filter: {
+            autosuggest_filter: {
+                max_gram: "20",
+                min_gram: "1",
+                token_chars: [
+                    "letter",
+                    "digit",
+                    "punctuation",
+                    "symbol"
+                ],
+                type: "edge_ngram"
+            },
+            ngram_filter: {
+                max_gram: "9",
+                min_gram: "2",
+                token_chars: [
+                    "letter",
+                    "digit",
+                    "punctuation",
+                    "symbol"
+                ],
+                type: "ngram"
+            }
+        },
 		"analyzer": {
-			"auto-suggest": {
-				"type": "custom",
-				"tokenizer": "ngramizer",
-				"filter": [
+			"autosuggest_analyzer": {
+				filter: [
 					"lowercase",
-					"asciifolding"
-				]
+					"asciifolding",
+					"autosuggest_filter"
+				],
+				tokenizer: "standard",
+				type: "custom"
+			},
+			ngram_analyzer: {
+				filter: [
+					"lowercase",
+					"asciifolding",
+					"ngram_filter"
+				],
+				tokenizer: "standard",
+				type: "custom"
 			}
 		}
 	}

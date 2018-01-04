@@ -6,7 +6,7 @@ export class LiveExample extends Component {
 
 	render() {
 		return (
-			<LivePen>
+			<LivePen />
 		);
 	}
 }

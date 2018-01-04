@@ -1,7 +1,7 @@
 {
-  "name": "todomvc-tutorial",
+  "name": "booksearch-onboarding",
   "version": "0.0.1",
-  "description": "todomvc-tutorial",
+  "description": "booksearch-onboarding",
   "main": "main.js",
   "scripts": {
     "webpack-server": "webpack-dev-server --hot --inline --progress --colors --port 8000",
@@ -11,9 +11,11 @@
   },
   "author": "Deepak Grover",
   "dependencies": {
-    "@appbaseio/reactivesearch": "^1.3.3",
+    "@appbaseio/reactivesearch": "^2.0.0-beta",
+    "bower": "^1.8.2",
     "clipboard": "^1.7.1",
     "fbemitter": "^2.1.1",
+    "global": "^4.3.2",
     "jquery": "^3.1.1",
     "md5": "^2.2.1",
     "react": "15.4.2",

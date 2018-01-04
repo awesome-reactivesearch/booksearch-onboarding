@@ -18,19 +18,18 @@ export class LiveFiddle extends Component {
 
 	codepenConfig() {
 		let config = {
-			title                 : "Reactivesearch App",
+			title                 : "Book Search App",
 			description           : "Powered by appbase.io",
 			private               : false,
 			editors               : "101",
 			layout                : "left",
 			html                  : dataOperation.htmlSnippet("small"),
 			css                   : SampleCSS,
-			css_pre_processor			: "scss",
+			css_pre_processor	  : "scss",
 			js                    : dataOperation.appSnippet(),
 			js_pre_processor      : "babel",
 			head                  : "<meta name='viewport' content='width=device-width'>",
-			css_external          : "https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/todomvc-app-css/base.css;https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/todomvc-app-css/index.css;https://raw.githubusercontent.com/dhruvdutt/todomvc-appbase/master/app/todomvc.scss",
-			js_external           : "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js;https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js;https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/classnames/index.js;https://cdn.rawgit.com/tastejs/todomvc/gh-pages/examples/react/node_modules/director/build/director.js;https://cdn.rawgit.com/appbaseio/appbase-js/master/dist/appbase.js;https://rawgit.com/appbaseio/reactivesearch/v1.3.3/umd/reactivesearch.js;"
+			js_external           : "https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js;https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js;https://rawgit.com/appbaseio/reactivesearch/dev/packages/web/umd/reactivesearch.js"
 
 		};
 		return JSON.stringify(config);
@@ -86,9 +85,9 @@ export class LiveFiddle extends Component {
 					<Tab eventKey={3} title="HTML">
 						{this.renderComponent("html")}
 					</Tab>
-					{/* <Tab eventKey={4} title="CSS">
+					<Tab eventKey={4} title="CSS">
 						{this.renderComponent("css")}
-					</Tab> */}
+					</Tab>
 				</Tabs>
 				<div className="extra-btns">
 					<form action="https://codepen.io/pen/define" method="POST" target="_blank">

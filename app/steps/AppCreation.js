@@ -73,7 +73,7 @@ export class AppCreation extends Component {
 			<div>
 				<LoginScreen />
 				<p>
-					<a className="subscribe" style={linkStyles} onClick={() => this.props.nextStep()}>Skip to TodoMVC App</a>
+					<a className="subscribe" style={linkStyles} onClick={() => this.props.nextStep()}>Skip to Book Search App</a>
 				</p>
 			</div>
 		);
@@ -161,20 +161,20 @@ export class AppCreation extends Component {
 				})
 				.then(() => {this.props.toggleLoader("Applying mappings... Please Wait!")})
 				.then(() => dataOperation.closeIndex())
-				.then(() => dataOperation.updateSettings("listing", settings))
+				.then(() => dataOperation.updateSettings("good-books-ds", settings))
 				.then(() => dataOperation.openIndex())
-				// .then(() => dataOperation.updateMapping("listing", mapping))
+				.then(() => dataOperation.updateMapping("good-books-ds", mapping))
 				.then((res) => {
 					this.props.toggleLoader();
 					this.props.toggleLoader("Assembling data and components for your app. Hold tight!");
 					this.props.nextStep();
-					// dataOperation.indexData(data)
-					// .on('data', (res) => {
-					// 	this.props.nextStep();
-					// })
-					// .on('error', (err) => {
-					// 	console.error("bulk failed: ", err);
-					// });
+					dataOperation.indexData(data)
+					.on('data', (res) => {
+						this.props.nextStep();
+					})
+					.on('error', (err) => {
+						console.error("bulk failed: ", err);
+					});
 				})
 				.catch((e) => {
 					console.log(e);

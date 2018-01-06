@@ -93,8 +93,9 @@ export class AppCreation extends Component {
 			  <section className="single-step">
 				<h2>Indexing Data</h2>
 				<p>
-					In this step, we will save our dataset from <strong>step 1</strong> into an appbase.io app for later re-use.
+					In this step, we will index sample dataset based on the JSON in <strong>step 1</strong> into an appbase.io app.
 				</p>
+				<p> You can read more about indexing and mapping for ReactiveSearch over <a href="https://opensource.appbase.io/reactive-manual/getting-started/indexing-and-mapping.html" target="_blank">here</a>.</p>
 
 				{this.state.error ? this.showError(): null}
 

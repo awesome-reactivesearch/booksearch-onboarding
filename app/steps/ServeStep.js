@@ -15,10 +15,10 @@ export class ServeStep extends Component {
 				return (<SampleDataContainer {...this.props}></SampleDataContainer>);
 			break;
 			case 1:
-				return (<DemoComponents {...this.props}></DemoComponents>);
+				return (<AppCreation {...this.props}></AppCreation>);
 			break;
 			case 2:
-				return (<AppCreation {...this.props}></AppCreation>);
+				return (<DemoComponents {...this.props}></DemoComponents>);
 			break;
 			case 3:
 				return (<LiveFiddle {...this.props}></LiveFiddle>);

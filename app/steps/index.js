@@ -187,7 +187,7 @@ export class Steps extends Component {
 				<div className="onboarding-left">
 					<div className="tex-left img-container reactive-logo">
 						<a href="https://opensource.appbase.io/reactivesearch/">
-							<img src="assets/images/searchicon.svg" alt="Reactive Maps" className="img-responsive" />
+							<i className="fa fa-chevron-left"/> ReactiveSearch
 						</a>
 					</div>
 					<ul className="step-widget">
@@ -200,21 +200,21 @@ export class Steps extends Component {
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">1</span>
 							</span>
-							Preparing Sample Dataset
+							Dataset
 						</li>
 						<li className={(this.state.currentStep === 1 ? "active" : this.state.completedStep >= 1 ? "finished" : null)}>
 							<span className="icon">
-								<i className="fa fa-check-circle"></i>
-								<span className="circle">2</span>
+							<i className="fa fa-check-circle"></i>
+							<span className="circle">2</span>
 							</span>
-							Assembling UI Components
+							Indexing Data
 						</li>
 						<li className={(this.state.currentStep === 2 ? "active" : this.state.completedStep >= 2 ? "finished" : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">3</span>
 							</span>
-							Save Progress in an App
+							Assembling UI Components
 						</li>
 						<li className={(this.state.currentStep === 3 ? "active" : this.state.completedStep >= 3 ? "finished" : null)}>
 							<span className="icon">

@@ -748,8 +748,12 @@ body {
 	padding: 0 40px;
 	text-align: left;
 	position: absolute;
-	left: -25px;
+	left: -15px;
 	top: 15px;
+
+	a {
+		font-size: 1.3rem;
+	}
 
 	&.inlogin {
 		left: 0;
@@ -760,6 +764,12 @@ body {
 
 	img {
 		width: 30px;
+	}
+
+	i {
+		padding-top: 0.5rem;
+		padding-left: 0.2rem;
+		padding-right: 0.5rem;
 	}
 }
 
@@ -796,7 +806,8 @@ table.highlight {
 				white-space: -o-pre-wrap;
 				word-wrap: break-word;
 				padding: 10px;
-				margin:0px
+				margin:0px;
+				border: 1px solid #ccc;
 			}
 		}
 	}
@@ -826,6 +837,20 @@ table.highlight {
 
 		.right-col-img {
 			width: 30%;
+		}
+	}
+
+	.step-one {
+		margin-left: 3rem;
+
+		.data-desc {
+			margin-left: 0 !important;
+		}
+
+		a {
+			float: left;
+			padding: 6px 12px;
+			padding-left: 0;
 		}
 	}
 

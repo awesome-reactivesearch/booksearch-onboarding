@@ -73,7 +73,7 @@ export class AppCreation extends Component {
 			<div>
 				<LoginScreen />
 				<p>
-					<a className="subscribe" style={linkStyles} onClick={() => this.props.nextStep()}>Skip to Book Search App</a>
+					<a className="subscribe" style={linkStyles} onClick={() => this.props.nextStep()}>Skip to Book Search Components</a>
 				</p>
 			</div>
 		);
@@ -91,7 +91,7 @@ export class AppCreation extends Component {
 			};
 			view = (
 			  <section className="single-step">
-				<h2>Save progress in an app</h2>
+				<h2>Indexing Data</h2>
 				<p>
 					In this step, we will save our dataset from <strong>step 1</strong> into an appbase.io app for later re-use.
 				</p>
@@ -109,6 +109,9 @@ export class AppCreation extends Component {
 						</label>
 						{this.submitBtn()}
 					</div>
+					<p>
+						<a className="subscribe" style={linkStyles} onClick={() => this.props.nextStep()}>Skip to Book Search Components</a>
+					</p>
 				</div>
 			  </section>
 			);

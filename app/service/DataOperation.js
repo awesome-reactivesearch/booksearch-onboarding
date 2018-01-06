@@ -1,6 +1,7 @@
 import { storageService } from './StorageService';
 import { urlShare } from './UrlShare';
 import { sampleCodeSnippet } from './SampleCodeSnippet';
+import $ from 'jquery';
 
 class DataOperation {
 	constructor() {
